@@ -4,9 +4,6 @@
 	"version": "1.0",
 	"description": "快速获取LOGO部分的SVG内容。插件更新地址：https://github.com/quarkape/free_logo.git",
 	"author": "quarkape",
-	"background": {
-		"service_worker": "js/content.js"
-	},
 	"action": {
 		"default_title": "FREE_LOGO",
 		"default_popup": "popup.html"
