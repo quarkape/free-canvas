@@ -1,21 +1,21 @@
 # Logo_Thief V1.0.0
 
-<img src="https://github.com/quarkape/Logo_Thief/blob/main/img/logo_thief.png" alt="image" style="width:100px" />
+<img src="https://github.com/quarkape/Free_Logo/blob/main/img/free_logo.png" alt="image" style="width:100px" />
 
-一个可以帮助下载某网站LOGO的浏览器插件
+一个可以帮助你快速、免费下载自定义尺寸的LOGO的浏览器插件
 
 ---
 
 ### :sunny: 目标网站
 
-- [直接跳转受害网站(插件只能在目标网站的logo编辑页面生效！)](https://www.logosc.cn/)
+- [直接跳转受害网站(插件只能在目标网站的logo编辑页面生效！)](https://www.logomaker.com.cn//)
 
 ---
 
 ### :leaves: 国内镜像
 
-- [GitHub项目地址](https://github.com/quarkape/Logo_Thief)
-- [Gitee项目地址(国内镜像)](https://gitee.com/huewhom/Logo_Thief)
+- [GitHub项目地址](https://github.com/quarkape/Free_Logo)
+- [Gitee项目地址(国内镜像)](https://gitee.com/huewhom/Free_Logo)
 
 ---
 

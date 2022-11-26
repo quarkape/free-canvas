@@ -2,6 +2,17 @@ console.log(`%c${'welcome to logo thief.\nsee more at https://github.com/quarkap
 
 chrome.runtime.onMessage.addListener((req, sender, resp) => {
   console.log('processing...')
+  if (req.del) {
+    const logincover = document.getElementsByClassName("el-scrollbar__view")[0].children[7];
+    if (!logincover.className) {
+      logincover.parentNode.removeChild(logincover);
+      console.log('succeed to remove login cover...')
+      resp('登录框去除成功~');
+    } else {
+      resp('登录框好像已经去除了,如果没有,请前往github上面提issue或者联系我~');
+    }
+    return;
+  }
   let widthset = req.widthset === '' ? 620 : parseInt(req.widthset);
   let keepbg = req.keepbg;
   if (widthset < 62 || widthset > 6200) {
