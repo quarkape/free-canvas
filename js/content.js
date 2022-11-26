@@ -35,13 +35,13 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   let widthset = req.widthset === '' ? (uname === 'bxz' ? bxz.default : bzk.default) : parseInt(req.widthset);
   let keepbg = req.keepbg;
   if (uname === 'bxz') {
-    if (widthset < 34 || widthset > 6800) {
-      resp('宽度应该介于34~6800');
+    if (widthset < bxz.min || widthset > bxz.max) {
+      resp(`宽度应该介于${bxz.min}~${bxz.max}`);
       return;
     }
   } else if (uname === 'bzk') {
-    if (widthset < 62 || widthset > 6200) {
-      resp('宽度应该介于31~6200');
+    if (widthset < bzk.min || widthset > bzk.max) {
+      resp(`宽度应该介于${bzk.min}~${bzk.max}`);
       return;
     }
   } else {
@@ -81,14 +81,14 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   }
 
   // final
-  dl(svg_part_copy.outerHTML, uname);
+  dl(svg_part_copy.outerHTML);
   console.log('succeed!')
   resp('操作成功')
 })
 
-function dl(content, uname) {
+function dl(content) {
   const el = document.createElement("a");
-  el.setAttribute('download', uname === 'bxz' ? 'bxz_logo.svg' : 'bzk_logo.svg');
+  el.setAttribute('download', 'free_logo.svg');
   const blob = new Blob([content])
   el.setAttribute('href', URL.createObjectURL(blob));
   el.style.display = 'none';
