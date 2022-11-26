@@ -1,0 +1,24 @@
+{
+	"manifest_version": 3,
+	"name": "Free Logo",
+	"version": "1.0",
+	"description": "快速获取LOGO部分的SVG内容。插件更新地址：https://github.com/quarkape/free_logo.git",
+	"author": "quarkape",
+	"action": {
+		"default_title": "FREE_LOGO",
+		"default_popup": "popup.html"
+	},
+	"icons": {
+		"16": "img/free_logo.png",
+		"48": "img/free_logo.png",
+		"128": "img/free_logo.png"
+	},
+	"permissions": ["tabs"],
+	"homepage_url": "https://github.com/quarkape/free_logo.git",
+	"content_scripts": [
+		{
+			"matches": ["https://www.logomaker.com.cn/*"],
+			"js": ["js/content.js"]
+		}
+	]
+}

@@ -1,0 +1,55 @@
+body {
+	width: 300px;
+	min-height: 140px;
+	border-radius: 4px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+#guide {
+	margin-bottom: 16px;
+}
+#guidence {
+	width: 100%;
+	height: 40px;
+	font-size: 14px;
+	border: 1px solid #f37b1d;
+	color: #f37b1d;
+	background-color: transparent;
+	border-radius: 4px;
+	outline: none;
+	transition: all .3s ease;
+	margin-bottom: 16px;
+}
+#guidence:hover {
+	background-color: #f37b1d;
+	color: #fff;
+}
+#widthset {
+	width: 100%;
+	height: 40px;
+	line-height: 40rpx;
+	padding: 6px;
+	box-sizing: border-box;
+	outline: none;
+	border: 1px solid #0081ff;
+	background-color: #fff;
+	margin: 4px 0 16px 0;
+	border-radius: 4px;
+}
+#keepbgdiv {
+	margin-bottom: 16px;
+}
+#execute {
+	width: 100%;
+	height: 40px;
+	font-size: 14px;
+	background-color: #0081ff;
+	color: #fff;
+	border-radius: 4px;
+	outline: none;
+	border:none;
+	transition: all .3s ease;
+}
+#execute:hover {
+	background-color: rgb(83, 168, 255);
+}
