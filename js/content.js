@@ -1,4 +1,4 @@
-console.log(`%c${'welcome to logo thief.\nsee more at https://github.com/quarkape/free_logo.git'}`, 'font-size: 20px;color: #0081ff;font-weight: bold;')
+console.log(`%c${'欢迎使用Free Logo插件.\n项目地址:https://github.com/quarkape/free_logo.git.\n还请给个star,欢迎fork~'}`, 'font-size: 20px;color: #9c26b0;font-weight: bold;')
 
 chrome.runtime.onMessage.addListener((req, sender, resp) => {
   console.log('processing...')
@@ -36,7 +36,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
 
 function dl(content) {
   const el = document.createElement("a");
-  el.setAttribute('download', 'logo_thief.svg');
+  el.setAttribute('download', 'free_logo.svg');
   const blob = new Blob([content])
   el.setAttribute('href', URL.createObjectURL(blob));
   el.style.display = 'none';
