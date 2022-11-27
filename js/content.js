@@ -57,8 +57,8 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
 
   const svg_part_copy = svg_part.cloneNode(true);
   svg_part_copy.setAttribute("width", widthset);
-  svg_part_copy.setAttribute("height", parseInt(widthset * (uname === 'bxz' ? bxz.w : bzk.w) / (uname === 'bxz' ? bxz.h : bzk.h)));
-  
+  svg_part_copy.setAttribute("height", parseInt(widthset * (uname === 'bxz' ? bxz.h : bzk.h) / (uname === 'bxz' ? bxz.w : bzk.w)));
+
   let bg = null;
   if (uname === 'bxz') {
     bg = svg_part_copy.children[0];
