@@ -1,4 +1,4 @@
-# 【重大更新】Free Logo V2.0.0
+# Free Logo V2.0.0
 
 <img src="https://github.com/quarkape/Free_Logo/blob/main/img/free_logo.png" alt="image" style="width:100px" />
 

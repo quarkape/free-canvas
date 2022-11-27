@@ -1,7 +1,6 @@
-console.log(`%c${'欢迎使用Free Logo插件.\n项目地址:https://github.com/quarkape/Free_Logo.git.\n还请给个star,欢迎fork~'}`, 'font-size: 20px;color: #9c26b0;font-weight: bold;')
+console.log(`%c${'欢迎使用Free Logo插件.\n项目地址:https://github.com/quarkape/Free_Logo.\n还请给个star,欢迎fork~'}`, 'font-size: 20px;color: #9c26b0;font-weight: bold;')
 
 chrome.runtime.onMessage.addListener((req, sender, resp) => {
-  console.log(req)
   console.log('processing...')
   // is deleting login cover
   if (req.del) {
@@ -55,10 +54,11 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   } else {
     svg_part = document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].children[0];
   }
-  console.log(svg_part)
+
   const svg_part_copy = svg_part.cloneNode(true);
   svg_part_copy.setAttribute("width", widthset);
   svg_part_copy.setAttribute("height", parseInt(widthset * (uname === 'bxz' ? bxz.w : bzk.w) / (uname === 'bxz' ? bxz.h : bzk.h)));
+  
   let bg = null;
   if (uname === 'bxz') {
     bg = svg_part_copy.children[0];
