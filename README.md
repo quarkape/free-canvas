@@ -14,7 +14,7 @@
 
 ### :sunny: 目标网站
 
-- [标小智](https://www.logosc.cn/)
+- [标小智](https://www.logosc.cn/)<a href="https://www.logosc.cn/" target="_blank">标小智<a/>
 - [标智客](https://www.logomaker.com.cn/)
 
 ---
