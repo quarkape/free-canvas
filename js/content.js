@@ -48,6 +48,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     return;
   }
   
+  // 获取svg节点
   let svg_part = null;
   if (uname === 'bxz') {
     svg_part = document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].children[1];
@@ -55,10 +56,12 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     svg_part = document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].children[0];
   }
 
+  // 克隆节点，防止污染原节点
   const svg_part_copy = svg_part.cloneNode(true);
   svg_part_copy.setAttribute("width", widthset);
   svg_part_copy.setAttribute("height", parseInt(widthset * (uname === 'bxz' ? bxz.h : bzk.h) / (uname === 'bxz' ? bxz.w : bzk.w)));
 
+  // 操作背景和水印
   let bg = null;
   if (uname === 'bxz') {
     bg = svg_part_copy.children[0];
