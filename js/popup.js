@@ -1,40 +1,69 @@
-document.getElementById("execute").addEventListener("click", () => {
-  chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-    const url = tabs[0].url;
-    let opt = {};
-    if (url.indexOf('https://www.logosc.cn/edit') === 0) {
-      opt.uname = 'bxz';
-    } else if (url.indexOf('https://www.logomaker.com.cn/guide#/generate') === 0) {
-      opt.uname = 'bzk';
-    } else {
-      document.getElementById("ans").innerText = "当前网站或页面不适合使用该插件。如果判断有误，烦请到github上面提issue~";
-      return;
+let tab_type = null, tab_id = null;
+let type_list = [
+  {
+    'name': '标小智',
+    'nname': 'bxz',
+    'url': 'https://www.logosc.cn/edit'
+  }, {
+    'name': '标智客(未登录)',
+    'nname': 'bzk0',
+    'url': 'https://www.logomaker.com.cn/guide#/generate'
+  }, {
+    'name': '标智客(已登录)',
+    'nname': 'bzk1',
+    'url': 'https://www.logomaker.com.cn/editor?case_id'
+  }
+]
+
+// 判断当前页面类型
+chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+  tab_id = tabs[0].id;
+  const url = tabs[0].url;
+  for (let u in type_list) {
+    if (url.indexOf(type_list[u].url) === 0) {
+      tab_type = parseInt(u);
+      break;
     }
-    opt.del = false;
-    opt.widthset = document.getElementById("widthset").value;
-    opt.keepbg = document.getElementById('keepbg').checked;
-    chrome.tabs.sendMessage(tabs[0].id, opt, (resp) => {
-        document.getElementById("ans").innerText = resp;
-    })
-  })
+  }
+  dealPage();
 })
 
+// 页面预处理
+const dealPage = () => {
+  // 提示是否适合使用插件
+  if (tab_type !== null) {
+    document.getElementById("mainbox").style.display = "block";
+  } else {
+    document.getElementById("ans").innerText = "请在LOGO编辑页面使用本插件。\n如有误判，烦请到github/gitee上面提issue~";
+  }
+  // 当前页面提示
+  document.getElementById("curpage").innerText = tab_type === null ? '' : `当前页面：【${type_list[tab_type].name}】`;
+  // 去除登录框按钮是否显示
+  if (tab_type === 1) {
+    document.getElementById("deletecover").style.display = "block";
+  }
+}
+
+// 跳转到项目地址
 document.getElementById("guidence").addEventListener("click", () => {
   window.open("https://github.com/quarkape/free_logo.git");
 })
 
+// 处理登录框
 document.getElementById("deletecover").addEventListener("click", () => {
-  chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-    const url = tabs[0].url;
-    if (url.indexOf('https://www.logomaker.com.cn/guide#/generate') === -1) {
-      document.getElementById("ans").innerText = "当前页面并不存在登录框。如果判断有误，烦请到github上面提issue~";
-      return;
-    }
-    let opt = {
-      'del': true
-    }
-    chrome.tabs.sendMessage(tabs[0].id, opt, (resp) => {
-        document.getElementById("ans").innerText = resp;
-    })
+  chrome.tabs.sendMessage(tab_id, {'del': true}, (resp) => {
+      document.getElementById("ans").innerText = resp;
+  })
+})
+
+// 开始处理
+document.getElementById("execute").addEventListener("click", () => {
+  let opt = {
+    'tab_type': tab_type,
+    'widthset': document.getElementById("widthset").value,
+    'keepbg': document.getElementById('keepbg').checked
+  }
+  chrome.tabs.sendMessage(tab_id, opt, (resp) => {
+      document.getElementById("ans").innerText = resp;
   })
 })

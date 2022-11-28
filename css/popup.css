@@ -3,7 +3,14 @@ body {
 	min-height: 140px;
 	border-radius: 4px;
 	padding: 10px;
+	padding-bottom: 0;
 	box-sizing: border-box;
+}
+#curpage {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 12px;
+	font-weight: bold;
 }
 #guide {
 	margin-bottom: 16px;
@@ -12,24 +19,24 @@ body {
 	width: 100%;
 	height: 40px;
 	font-size: 14px;
-	border: 1px solid #f37b1d;
-	color: #f37b1d;
+	border: 1px solid #39b54a;
+	color: #39b54a;
 	background-color: transparent;
 	border-radius: 4px;
 	outline: none;
 	transition: all .3s ease;
-	margin-bottom: 16px;
+	margin-bottom: 12px;
 }
 #guidence:hover {
-	background-color: #f37b1d;
+	background-color: #39b54a;
 	color: #fff;
 }
 #deletecover {
 	width: 100%;
 	height: 40px;
 	font-size: 14px;
-	border: 1px solid #9c26b0;
-	color: #9c26b0;
+	border: 1px solid #1cbbb4;
+	color: #1cbbb4;
 	background-color: transparent;
 	border-radius: 4px;
 	outline: none;
@@ -37,7 +44,7 @@ body {
 	margin-bottom: 16px;
 }
 #deletecover:hover {
-	background-color: #9c26b0;
+	background-color: #1cbbb4;
 	color: #fff;
 }
 #widthset {
@@ -68,4 +75,13 @@ body {
 }
 #execute:hover {
 	background-color: rgb(83, 168, 255);
+}
+#ans {
+	color: #e54d42;
+	font-size: 14px;
+	margin: 8px 0;
+}
+#loc {
+	color: #999;
+	font-style: italic;
 }
