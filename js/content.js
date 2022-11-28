@@ -39,6 +39,7 @@ let conf_list = [
 ]
 
 chrome.runtime.onMessage.addListener((req, sender, resp) => {
+  console.log('enter')
   // 处理登录框
   if (req.del) {
     const logincover = document.getElementsByClassName("el-scrollbar__view")[0].children[7];
@@ -48,7 +49,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     } else {
       resp('登录框似乎已经去除了。如有误判，烦请到github/gitee上面提issue~');
     }
-    return;
+    // return;
   }
 
   // 处理自定义参数
@@ -83,6 +84,17 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   svg_part_copy.setAttribute("width", widthset);
   svg_part_copy.setAttribute("height", parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w));
 
+  // 去掉无用区域
+  // tab_type:2
+  // let left_min, top_min;
+  // const pat = /translate(\(.*?\))/;
+  // let nodes = svg_part_copy.children;
+  // for (let i in nodes) {
+  //   if ((i.id).indexOf("shape_") === 0) {
+  //     let left = 
+  //   }
+  // }
+
   // 去水印
   if (conf_list[tab_type].wmpos) {
     let wm = svg_part_copy.children[conf_list[tab_type].wmpos];
@@ -93,7 +105,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
 
   // 操作背景
   if (!keepbg) {
-    let bg = svg_part_copy.children[conf_list[tab_type].bgnm];
+    let bg = svg_part_copy.children[conf_list[tab_type].bgpos];
     if (bg.nodeName === conf_list[tab_type].bgty && (bg.id === conf_list[tab_type].bgnm || bg.className === conf_list[tab_type].bgnm)) {
       svg_part_copy.removeChild(bg);
     }
