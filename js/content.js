@@ -91,7 +91,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   // let nodes = svg_part_copy.children;
   // for (let i in nodes) {
   //   if ((i.id).indexOf("shape_") === 0) {
-  //     let left = 
+  //     let left = i.getAttribute("")
   //   }
   // }
 
