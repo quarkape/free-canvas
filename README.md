@@ -21,7 +21,6 @@
 
 - 直接下载：**点击上方“Code”按钮，选择最后一项“Download ZIP”即可下载插件~**
 - 项目克隆
-- **强烈建议star或者fork，日后会持续更新，比如增加可用网站和到处1：1正方形LOGO等功能**
 
 ---
 
@@ -34,7 +33,7 @@
 ### :sunny: 目标网站
 
 - [标小智](https://www.logosc.cn/)
-- [标智客](https://www.logomaker.com.cn/)
+- [标智客(目前支持免登录获取LOGO，但是该网站登陆后可以使用高级编辑功能，目前正在开发登录后的LOGO导出的功能，版本V3.0.0)](https://www.logomaker.com.cn/)
 
 ---
 
