@@ -39,6 +39,12 @@
 
 ---
 
+### :violin: 效果预览
+
+<img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/ss.png" alt="xgyl" style="width:200px" />
+
+---
+
 ### :package: 获取方式
 
 - 直接下载：**点击上方“Code”按钮，选择最后一项“Download ZIP”即可下载插件~**
