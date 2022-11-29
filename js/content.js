@@ -107,10 +107,6 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     svg_part_copy.setAttribute("width", widthset);
     svg_part_copy.setAttribute("height", parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w));
   }
-  
-  // 调整画舞台尺寸，只有调整后才能保证导出的LOGO的完整性
-  // document.getElementById("stage_canvas").style.width = "800px";
-  // document.getElementById("stage_canvas").style.height = "600px";
 
   // 计算LOGO的上下左右边界
   function calcEdge(svgNode) {
@@ -179,6 +175,11 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
         transAttr = transAttr.replace(pat, rep);
         i.setAttribute("transform", transAttr);
       }
+    }
+    // 移动背景图片位置
+    let bg = svgNode.children[conf_list[tab_type].bgpos];
+    if (bg.nodeName === conf_list[tab_type].bgty && (bg.id === conf_list[tab_type].bgnm || bg.className === conf_list[tab_type].bgnm)) {
+      bg.setAttribute("transform", `translate(${-edgeArr.leftMin} ${-edgeArr.topMin})`)
     }
     // 计算LOGO画布尺寸
     let svgWidth = edgeArr.rightMax - edgeArr.leftMin;
