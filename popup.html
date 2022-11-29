@@ -10,11 +10,19 @@
 		<div><input id="guidence" value="【推荐】使用教程" type="button" /></div>
 		<div id="mainbox" style="display: none;">
 			<div><input style="display: none;" id="deletecover" value="去除登录框" type="button" /></div>
-			<div><span>标小智LOGO范围34~6800，默认680，建议34的倍数；<br/>标智客(未登录)范围31~6200，默认620，建议31的倍数；<br/>标智客(已登录)范围40~8000，默认800，建议40的倍数。</span></div>
+			<div>宽度范围34~6800，默认680，建议34的倍数</div>
+			<div>宽度范围31~6200，默认620，建议31的倍数</div>
+			<div>宽度范围40~8000，默认800，建议40的倍数</div>
 			<div><input id="widthset" type="number" maxlength="5" placeholder="(非必须)请输入LOGO宽度" /></div>
 			<div id="keepbgdiv">
-				<input type="checkbox" id="keepbg" name="keepbg"><span>保留LOGO背景(默认不保留且透明)</span><br/>
+				<input type="checkbox" id="keepbg" name="keepbg"><label for="keepbg">保留LOGO背景(默认不保留且透明)</label><br/>
 			</div>
+			<div id="cutlogodiv">
+				<input type="checkbox" id="cutlogo" name="cutlogo" checked><label for="cutlogo">智能裁剪LOGO</label><br/>
+			</div>
+			<!-- <div id="keepbgdiv">
+				<input type="checkbox" id="keepbg" name="keepbg" checked><span>智能裁剪为正方形LOGO</span><br/>
+			</div> -->
 			<div><input id="execute" value="开始处理" type="button" /></div>
 		</div>
 		<div id="ans"></div>

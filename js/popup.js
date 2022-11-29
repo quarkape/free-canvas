@@ -38,6 +38,7 @@ const dealPage = () => {
   }
   // 当前页面提示
   document.getElementById("curpage").innerText = tab_type === null ? '' : `当前页面：【${type_list[tab_type].name}】`;
+  document.getElementById("mainbox").children[tab_type+1].style.display = "block";
   // 去除登录框按钮是否显示
   if (tab_type === 1) {
     document.getElementById("deletecover").style.display = "block";
@@ -61,7 +62,8 @@ document.getElementById("execute").addEventListener("click", () => {
   let opt = {
     'tab_type': tab_type,
     'widthset': document.getElementById("widthset").value,
-    'keepbg': document.getElementById('keepbg').checked
+    'keepbg': document.getElementById('keepbg').checked,
+    'cutlogo': document.getElementById('cutlogo').checked
   }
   chrome.tabs.sendMessage(tab_id, opt, (resp) => {
       document.getElementById("ans").innerText = resp;

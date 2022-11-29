@@ -37,9 +37,9 @@ let conf_list = [
     'bgnm': 'background'
   }
 ]
+const pat = /(?<=translate\()(.+?)(?=\))/;
 
 chrome.runtime.onMessage.addListener((req, sender, resp) => {
-  console.log('enter')
   // 处理登录框
   if (req.del) {
     const logincover = document.getElementsByClassName("el-scrollbar__view")[0].children[7];
@@ -56,6 +56,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   let tab_type = req.tab_type;
   let widthset = req.widthset === '' ? (conf_list[tab_type].default) : parseInt(req.widthset);
   let keepbg = req.keepbg;
+  let cutlogo = req.cutlogo;
 
   // 检查参数
   if (widthset < conf_list[tab_type].min || widthset > conf_list[tab_type].max) {
@@ -77,23 +78,9 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
       break;
   }
 
-  // 克隆节点，防止污染原节点
+  // 克隆节点，防止污染原节点；将节点插入到文档中，才能使用getBoundingClientRect()函数
   const svg_part_copy = svg_part.cloneNode(true);
-
-  // 修改尺寸
-  svg_part_copy.setAttribute("width", widthset);
-  svg_part_copy.setAttribute("height", parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w));
-
-  // 去掉无用区域
-  // tab_type:2
-  // let left_min, top_min;
-  // const pat = /translate(\(.*?\))/;
-  // let nodes = svg_part_copy.children;
-  // for (let i in nodes) {
-  //   if ((i.id).indexOf("shape_") === 0) {
-  //     let left = i.getAttribute("")
-  //   }
-  // }
+  document.getElementById('stage_canvas').appendChild(svg_part_copy);
 
   // 去水印
   if (conf_list[tab_type].wmpos) {
@@ -111,8 +98,106 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     }
   }
 
+  // 去掉无用区域，仅适用于标智客登陆后的类型
+  if (cutlogo) {
+    let edgeArr = calcEdge(svg_part_copy);
+    dealCutFit(svg_part_copy, edgeArr);
+  } else {
+    // 修改尺寸
+    svg_part_copy.setAttribute("width", widthset);
+    svg_part_copy.setAttribute("height", parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w));
+  }
+  
+  // 调整画舞台尺寸，只有调整后才能保证导出的LOGO的完整性
+  // document.getElementById("stage_canvas").style.width = "800px";
+  // document.getElementById("stage_canvas").style.height = "600px";
+
+  // 计算LOGO的上下左右边界
+  function calcEdge(svgNode) {
+    let leftMin = Number.MAX_SAFE_INTEGER, topMin = Number.MAX_SAFE_INTEGER;
+    let rightMax = Number.MIN_SAFE_INTEGER, bottomMax = Number.MIN_SAFE_INTEGER;
+    let nodes = svgNode.children;
+    for (let i of nodes) {
+      // 计算上下左右边界
+      if ((i.id).indexOf("shape_") === 0) {
+        let transAttr = i.getAttribute("transform");
+        let transl = transAttr.match(pat)[0].split(",");
+        let transLeft = parseFloat(transl[0]);
+        let transTop = parseFloat(transl[1]);
+
+        let transRight = 0, transBottom = 0;
+        // 消除rect对实际宽高的影响
+        let innerSvgNodes = i.firstChild.children;
+        let oriWidth = i.getBoundingClientRect().width;
+        let oriHeight = i.getBoundingClientRect().height;
+        if (innerSvgNodes[0].nodeName === "rect") {
+          transRight = transLeft + parseFloat(innerSvgNodes[1].getAttribute("width"));
+          transBottom = transTop + parseFloat(innerSvgNodes[1].getAttribute("height"));
+        } else {
+          let rect = innerSvgNodes[0].lastChild.getBoundingClientRect();
+          let rectRect = innerSvgNodes[0].firstChild.getBoundingClientRect();
+          transLeft = transLeft + rect.left - rectRect.left;
+          transTop = transTop + rect.top - rectRect.top;
+          // 上面已经计算了部分内容，下面只需要加上width就够了
+          transRight = transLeft + rect.width;
+          transBottom = transTop + rect.height;
+        }
+        if (transLeft < leftMin) {
+          leftMin = transLeft;
+        }
+        if (transTop < topMin) {
+          topMin = transTop;
+        }
+        if (transRight > rightMax) {
+          rightMax = transRight;
+        }
+        if (transBottom > bottomMax) {
+          bottomMax = transBottom;
+        }
+      }
+    }
+    return {
+      'leftMin': leftMin,
+      'topMin': topMin,
+      'rightMax': rightMax,
+      'bottomMax': bottomMax
+    }
+  }
+  
+  // 支持根据LOGO实际内容智能裁剪
+  function dealCutFit(svgNode, edgeArr) {
+    let nodes = svgNode.children;
+    // 移动所有元素的位置至左上角
+    for (let i of nodes) {
+      if ((i.id).indexOf("shape_") === 0) {
+        let transAttr = i.getAttribute("transform");
+        let transl = transAttr.match(pat)[0].split(",");
+        let transLeft = parseFloat(transl[0]);
+        let transTop = parseFloat(transl[1]);
+        console.log(transLeft - edgeArr.leftMin)
+        let rep = `${(transLeft-edgeArr.leftMin).toFixed(11)},${(transTop - edgeArr.topMin).toFixed(11)}`;
+        transAttr = transAttr.replace(pat, rep);
+        i.setAttribute("transform", transAttr);
+      }
+    }
+    // 计算LOGO画布尺寸
+    let svgWidth = edgeArr.rightMax - edgeArr.leftMin;
+    let svgHeight = edgeArr.bottomMax - edgeArr.topMin;
+    // 修改画布尺寸
+    svgNode.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+    svgNode.setAttribute("width", widthset);
+    svgNode.setAttribute("height", widthset * svgHeight / svgWidth);
+  }
+
+  // 支持裁剪为正方形LOGO，LOOG自动居中
+  function dealCutSquare(svgNode, widthset) {
+    
+  }
+
   // 导出svg文件
   dl(svg_part_copy.outerHTML);
+  // 将克隆的节点删除
+  document.getElementById('stage_canvas').removeChild(svg_part_copy);
   resp('操作成功')
 })
 

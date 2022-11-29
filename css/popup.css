@@ -12,6 +12,9 @@ body {
 	margin-bottom: 12px;
 	font-weight: bold;
 }
+#mainbox div:nth-child(2), #mainbox div:nth-child(3), #mainbox div:nth-child(4) {
+	display: none;
+}
 #guide {
 	margin-bottom: 16px;
 }
@@ -60,6 +63,9 @@ body {
 	border-radius: 4px;
 }
 #keepbgdiv {
+	margin-bottom: 16px;
+}
+#cutlogo {
 	margin-bottom: 16px;
 }
 #execute {
