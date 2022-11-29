@@ -56,7 +56,7 @@
 ### :leaves: 国内镜像
 
 - [GitHub项目地址](https://github.com/quarkape/free_logo)
-- [Gitee项目地址(国内镜像)
+- [Gitee项目地址](https://gitee.com/quarkape/free_logo)
 
 ---
 
