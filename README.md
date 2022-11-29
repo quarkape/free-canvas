@@ -41,7 +41,7 @@
 
 ### :violin: 效果预览
 
-<img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/ss.png" alt="xgyl" style="width:200px" />
+<img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/ss.png" alt="xgyl" style="width:300px" />
 
 ---
 
