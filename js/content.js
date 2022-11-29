@@ -49,7 +49,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     } else {
       resp('登录框似乎已经去除了。如有误判，烦请到github/gitee上面提issue~');
     }
-    // return;
+    return;
   }
 
   // 处理自定义参数
@@ -66,21 +66,28 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   
   // 获取svg节点
   let svg_part = null;
+  let svg_part_copy = null;
   switch (tab_type) {
     case 0:
       svg_part = document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].children[1];
+      svg_part_copy = svg_part.cloneNode(true);
+      // document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].appendChild(svg_part_copy);
       break;
     case 1:
       svg_part = document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].children[0];
+      svg_part_copy = svg_part.cloneNode(true);
+      // document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].appendChild(svg_part_copy);
       break;
     case 2:
       svg_part = document.getElementById('stage_canvas').children[1];
+      svg_part_copy = svg_part.cloneNode(true);
+      document.getElementById('stage_canvas').appendChild(svg_part_copy);
       break;
   }
 
   // 克隆节点，防止污染原节点；将节点插入到文档中，才能使用getBoundingClientRect()函数
-  const svg_part_copy = svg_part.cloneNode(true);
-  document.getElementById('stage_canvas').appendChild(svg_part_copy);
+  // const svg_part_copy = svg_part.cloneNode(true);
+  // document.getElementById('stage_canvas').appendChild(svg_part_copy);
 
   // 去水印
   if (conf_list[tab_type].wmpos) {
@@ -99,7 +106,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   }
 
   // 去掉无用区域，仅适用于标智客登陆后的类型
-  if (cutlogo) {
+  if (tab_type === 2 && cutlogo) {
     let edgeArr = calcEdge(svg_part_copy);
     dealCutFit(svg_part_copy, edgeArr);
   } else {
@@ -198,7 +205,18 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   // 导出svg文件
   dl(svg_part_copy.outerHTML);
   // 将克隆的节点删除
-  document.getElementById('stage_canvas').removeChild(svg_part_copy);
+  // document.getElementById('stage_canvas').removeChild(svg_part_copy);
+  switch (tab_type) {
+    case 0:
+      // document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].removeChild(svg_part_copy);
+      break;
+    case 1:
+      // document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].removeChild(svg_part_copy);
+      break;
+    case 2:
+      document.getElementById('stage_canvas').removeChild(svg_part_copy);
+      break;
+  }
   resp('操作成功')
 })
 
