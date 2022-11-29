@@ -65,7 +65,8 @@ body {
 #keepbgdiv {
 	margin-bottom: 16px;
 }
-#cutlogo {
+#cutlogodiv {
+	display: none;
 	margin-bottom: 16px;
 }
 #execute {

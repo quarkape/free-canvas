@@ -43,6 +43,10 @@ const dealPage = () => {
   if (tab_type === 1) {
     document.getElementById("deletecover").style.display = "block";
   }
+  // 是否显示智能裁剪
+  if (tab_type === 2) {
+    document.getElementById("cutlogodiv").style.display = "block";
+  }
 }
 
 // 跳转到项目地址
