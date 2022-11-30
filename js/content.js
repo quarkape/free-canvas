@@ -38,6 +38,7 @@ let conf_list = [
   }
 ]
 const pat = /(?<=translate\()(.+?)(?=\))/;
+const patBox = /(?<=translate\()(.+?)(?=px\))/;
 
 chrome.runtime.onMessage.addListener((req, sender, resp) => {
   // 处理登录框
@@ -73,12 +74,12 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     case 0:
       svg_part = document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].children[1];
       svg_part_copy = svg_part.cloneNode(true);
-      document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].appendChild(svg_part_copy);
+      // document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].appendChild(svg_part_copy);
       break;
     case 1:
       svg_part = document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].children[0];
       svg_part_copy = svg_part.cloneNode(true);
-      document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].appendChild(svg_part_copy);
+      // document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].appendChild(svg_part_copy);
       break;
     case 2:
       svg_part = document.getElementById('stage_canvas').children[1];
@@ -87,7 +88,8 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
       break;
   }
 
-  // svg_part_copy.style.opacity = "0";
+  // 克隆节点透明
+  svg_part_copy.style.opacity = "0";
 
 
   // 去水印
@@ -100,6 +102,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
 
   // 操作背景
   if (!keepbg) {
+    console.log('enter')
     let bg = svg_part_copy.children[conf_list[tab_type].bgpos];
     if (bg.nodeName === conf_list[tab_type].bgty && (bg.id === conf_list[tab_type].bgnm || bg.className === conf_list[tab_type].bgnm)) {
       svg_part_copy.removeChild(bg);
@@ -109,8 +112,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   // 去掉无用区域，仅适用于标智客登陆后的类型
   if (tab_type === 2 && cutlogo) {
     let svgBoxNodes = document.getElementById("rectBox");
-    let edgeArr = calcEdge(svg_part_copy, svgBoxNodes, svg_part);
-    console.log(edgeArr)
+    let edgeArr = calcEdge(svg_part_copy, svgBoxNodes);
     dealCutFit(svg_part_copy, edgeArr);
   } else {
     // 修改尺寸
@@ -120,19 +122,20 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
 
   // 计算LOGO的上下左右边界
   // 仅适用于登陆后的标智客使用
-  function calcEdge(svgNode, svgBoxNodes, svgOriNode) {
+  function calcEdge(svgNode, svgBoxNodes) {
     let svgRect = svgNode.getBoundingClientRect();
     let leftMin = Number.MAX_SAFE_INTEGER, topMin = Number.MAX_SAFE_INTEGER;
     let rightMax = Number.MIN_SAFE_INTEGER, bottomMax = Number.MIN_SAFE_INTEGER;
     let nodes = svgNode.children;
     let boxNodes = svgBoxNodes.children;
-    // 后面代码非常依赖网站代码结构，如果结构有出入，直接提示不要使用裁剪
-    // if (nodes.length !== boxNodes.length) {
-    //   resp('此插件暂不支持该LOGO的代码结构，不建议使用智能裁剪功能!')
-    //   return;
-    // }
-    // 排除一些非g标签对index的影响
     let placeCount = -1;
+    // 判断是否存在
+    if ((nodes.length-1) !== boxNodes.length) {
+      resp('检测到插件不适用于此logo，请检查logo中是否有文字素材。如果有，请单击文字素材，然后点击左上角取消编组，重复此过程直到logo中所有文字素材都取消了编组。如果仍无法处理，请到github/gitee上面提issue或者反馈给我~');
+      document.getElementById('stage_canvas').removeChild(svg_part_copy);
+      return;
+    }
+    // 排除一些非g标签对index的影响
     for (let index=0;index<nodes.length;index++) {
       // 计算上下左右边界
       if ((nodes[index].id).indexOf("shape_") === 0) {
@@ -147,11 +150,12 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
         let innerSvgNodes = nodes[index].firstChild.children;
 
         // 部分组件的参考点不是左上角，需要对比处理
-        let boxTrans = boxNodes[placeCount].style.transform.match(pat)[0].split(",");
-        let boxTransLeft = boxTrans[0];
+        // 这里要注意index+1，因为克隆的那个背景被去掉了，因此要在克隆的节点的基础上加上1才能得到原始节点的数据
+        let boxTrans = boxNodes[placeCount].style.transform.match(patBox)[0].split(",");
         // 在做对比看参考点的时候，用原来的的svg与原来的box总比较，但是最后是在克隆的svg上面做修改
         // 如果参考点x为0（假设此时y的参考点也为0）
-        if (parseInt(svgOriNode.children[index].getBoundingClientRect.left) === parseInt(boxTransLeft)) {
+        // 这里的判断不太科学，但是确实没有更加理想的方法了
+        if (Math.abs(parseInt(transLeft) - parseInt(boxTrans[0])) <= 1) {
           if (innerSvgNodes[0].nodeName !== "rect") {
             // 第一层没有第二层有
             let finalSvgNodes = innerSvgNodes[0].children;
@@ -214,7 +218,6 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
         }
       }
     }
-    // return;
     return {
       'leftMin': leftMin,
       'topMin': topMin,
@@ -261,14 +264,15 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   }
 
   // 导出svg文件
+  svg_part_copy.style = "";
   dl(svg_part_copy.outerHTML);
   // 将克隆的节点删除
   switch (tab_type) {
     case 0:
-      document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].removeChild(svg_part_copy);
+      // document.getElementsByClassName("card__upper")[0].parentNode.childNodes[0].removeChild(svg_part_copy);
       break;
     case 1:
-      document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].removeChild(svg_part_copy);
+      // document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].removeChild(svg_part_copy);
       break;
     case 2:
       document.getElementById('stage_canvas').removeChild(svg_part_copy);
