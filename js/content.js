@@ -255,9 +255,9 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   // 支持裁剪为正方形LOGO，LOOG自动居中
   function dealCutSquare(svgNode, widthset) {
     // 计算LOGO画布尺寸，决定正方形的边长
-    let svgWidth = edgeArr.rightMax - edgeArr.leftMin;
-    let svgHeight = edgeArr.bottomMax - edgeArr.topMin;
-    let logoLen = Math.max(svgWidth, svgHeight);
+    // let svgWidth = edgeArr.rightMax - edgeArr.leftMin;
+    // let svgHeight = edgeArr.bottomMax - edgeArr.topMin;
+    // let logoLen = Math.max(svgWidth, svgHeight);
   }
 
   // 导出svg文件
