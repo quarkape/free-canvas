@@ -104,12 +104,8 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
 
   // 操作背景
   if (!keepbg) {
-    console.log('enter')
     let bg = svg_part_copy.children[conf_list[tab_type].bgpos];
-    console.log('bg:', bg)
-    console.log('pd:', bg.nodeName, conf_list[tab_type].bgty, bg.className, conf_list[tab_type].bgnm[conf_list[tab_type].bgkey])
     if (bg.nodeName === conf_list[tab_type].bgty && (conf_list[tab_type].bgnm === (conf_list[tab_type].bgty === 'rect' ? bg.id[conf_list[tab_type].bgkey] : bg.id) || conf_list[tab_type].bgnm === (conf_list[tab_type].bgty === 'rect' ? bg.className[conf_list[tab_type].bgkey] : bg.className))) {
-      console.log('yes')
       svg_part_copy.removeChild(bg);
     }
   }
@@ -137,7 +133,6 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     // 判断是否存在
     // 水印+def是必须算的节点
     let nodesNum = keepbg ? 2 : 1;
-    console.log(nodes.length, nodesNum, boxNodes.length)
     if ((nodes.length - nodesNum) !== boxNodes.length) {
       resp('检测到插件不适用于此logo，请检查logo中是否有文字素材。如果有，请单击文字素材，然后点击左上角取消编组，重复此过程直到logo中所有文字素材都取消了编组。如果仍无法处理，请到github/gitee上面提issue或者反馈给我~');
       // document.getElementById('stage_canvas').removeChild(svg_part_copy);
