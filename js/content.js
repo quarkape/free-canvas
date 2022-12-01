@@ -12,6 +12,8 @@ let conf_list = [
     'bgpos': 0, // 背景的位置
     'bgty': 'rect', // 背景的类型
     'bgnm': 'background', // 背景的id名
+    'bgkey': 'baseVal',
+    'bgkey2': 'animVal',
     'wmpos': 1, // 水印的位置
     'wmty': 'rect', // 水印的类型
     'wmnm': 'watermark' // 水印的名称
@@ -104,7 +106,10 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   if (!keepbg) {
     console.log('enter')
     let bg = svg_part_copy.children[conf_list[tab_type].bgpos];
-    if (bg.nodeName === conf_list[tab_type].bgty && (bg.id === conf_list[tab_type].bgnm || bg.className === conf_list[tab_type].bgnm)) {
+    console.log('bg:', bg)
+    console.log('pd:', bg.nodeName, conf_list[tab_type].bgty, bg.className, conf_list[tab_type].bgnm[conf_list[tab_type].bgkey])
+    if (bg.nodeName === conf_list[tab_type].bgty && (conf_list[tab_type].bgnm === (conf_list[tab_type].bgty === 'rect' ? bg.id[conf_list[tab_type].bgkey] : bg.id) || conf_list[tab_type].bgnm === (conf_list[tab_type].bgty === 'rect' ? bg.className[conf_list[tab_type].bgkey] : bg.className))) {
+      console.log('yes')
       svg_part_copy.removeChild(bg);
     }
   }
@@ -130,9 +135,12 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     let boxNodes = svgBoxNodes.children;
     let placeCount = -1;
     // 判断是否存在
-    if ((nodes.length-1) !== boxNodes.length) {
+    // 水印+def是必须算的节点
+    let nodesNum = keepbg ? 2 : 1;
+    console.log(nodes.length, nodesNum, boxNodes.length)
+    if ((nodes.length - nodesNum) !== boxNodes.length) {
       resp('检测到插件不适用于此logo，请检查logo中是否有文字素材。如果有，请单击文字素材，然后点击左上角取消编组，重复此过程直到logo中所有文字素材都取消了编组。如果仍无法处理，请到github/gitee上面提issue或者反馈给我~');
-      document.getElementById('stage_canvas').removeChild(svg_part_copy);
+      // document.getElementById('stage_canvas').removeChild(svg_part_copy);
       return;
     }
     // 排除一些非g标签对index的影响
