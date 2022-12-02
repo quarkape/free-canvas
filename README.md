@@ -43,7 +43,7 @@
 
 |                           普通页面                           |                            标小智                            |                       标智客（未登录）                       |                       标智客（已登录）                       |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/s0.png" alt="xgyl" style="width:90%" /> | <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/s1.png" alt="xgyl" style="width:90%" /> | <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/s2.png" alt="xgyl" style="width:90%" /> | <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/ss.png" alt="xgyl" style="width:90%" /> |
+| <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/s0.png" alt="xgyl" style="width:90%" /> | <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/s1.png" alt="xgyl" style="width:90%" /> | <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/s2.png" alt="xgyl" style="width:90%" /> | <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/s3.png" alt="xgyl" style="width:90%" /> |
 
 
 
