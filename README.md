@@ -1,6 +1,6 @@
 # Free Logo V3.2.1
 
-<img src="https://github.com/quarkape/Free_Logo/blob/main/img/free_logo.png" alt="image" style="width:100px" />
+<img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="width:100px" />
 
 【一个】插件帮你**快速**、**免费**下载【两个】网站的**无水印**、**高清**LOGO！
 
