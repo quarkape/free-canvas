@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Free Logo",
-	"version": "3.2.1",
+	"version": "3.3.0",
 	"description": "快速、免费获取两个网站的无水印、高清LOGO。插件更新地址：https://github.com/quarkape/free_logo",
 	"author": "quarkape",
 	"action": {

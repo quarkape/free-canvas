@@ -67,7 +67,8 @@ document.getElementById("execute").addEventListener("click", () => {
     'tab_type': tab_type,
     'widthset': document.getElementById("widthset").value,
     'keepbg': document.getElementById('keepbg').checked,
-    'cutlogo': document.getElementById('cutlogo').checked
+    'cutlogo': document.getElementById('cutlogo').checked,
+    'cutsquare': document.getElementById("cutsquare").checked
   }
   chrome.tabs.sendMessage(tab_id, opt, (resp) => {
       document.getElementById("ans").innerText = resp;

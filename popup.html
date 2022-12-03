@@ -18,8 +18,9 @@
 				<input type="checkbox" id="keepbg" name="keepbg"><label for="keepbg">保留LOGO背景(默认不保留且透明)</label><br/>
 			</div>
 			<div id="cutlogodiv">
-				<input type="checkbox" id="cutlogo" name="logocut"><label for="cutlogo">智能裁剪LOGO</label><br/>
-				<!-- <input type="checkbox" id="cutsquare" name="logocut" checked><label for="cutsquare">裁剪为正方形</label> -->
+				<input type="radio" id="notcut" name="logocut" checked><label for="notcut">不裁剪</label><br/>
+				<input type="radio" id="cutlogo" name="logocut"><label for="cutlogo">根据实际大小裁剪</label><br/>
+				<input type="radio" id="cutsquare" name="logocut"><label for="cutsquare">裁剪为正方形</label>
 			</div>
 			<div><input id="execute" value="开始处理" type="button" /></div>
 		</div>

@@ -64,10 +64,15 @@ body {
 }
 #keepbgdiv {
 	margin-bottom: 16px;
+	font-size: 14px;
 }
 #cutlogodiv {
 	display: none;
 	margin-bottom: 16px;
+	font-size: 14px;
+}
+#cutlogodiv input {
+	line-height: 1.4;
 }
 #execute {
 	width: 100%;
@@ -87,6 +92,7 @@ body {
 	color: #e54d42;
 	font-size: 14px;
 	margin: 8px 0;
+	line-height: 1.4;
 }
 #loc {
 	color: #999;
