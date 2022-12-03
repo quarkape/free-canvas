@@ -1,19 +1,13 @@
-# Free Logo  v3.2.1
+# <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="height:30px" /> Free Logo  v3.2.1
 
-<img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="width:100px" />
+### 一个插件帮你**快速**、**免费**下载两个网站的**无水印**、**高清**LOGO！
 
-
-
-【一个插件帮你**快速**、**免费**下载两个网站的**无水印**、**高清**LOGO！】
-
-- **如果遇到问题或者bug，请提issue或者反馈**
-- 感谢B友@*拾光探长*在版本更新后的测试:handshake: ~
+- 如果遇到问题或者bug，请提issue或者反馈
+- 感谢B友@*拾光探长*在版本更新后的测试
 
 
 
 ## :game_die: 功能支持
-
-
 
 |                  |  去背景   | 保留背景  |    智能裁剪    | 去登录框  |   正方形裁剪   |   自定义边宽   |
 | :--------------: | :-------: | :-------: | :------------: | :-------: | :------------: | :------------: |
@@ -25,8 +19,6 @@
 
 ## :qatar: 常见问题说明
 
-
-
 1. 如果点击立即处理后提示`undefined`，刷新LOGO编辑页面即可
 3. `windows defender`提示插件压缩包有风险，解压后一般都不会再提示，不放心的小伙伴可以用相关软件检查一下
 5. 智能裁剪得到的logo可能周边有些细微的空边，这常见于添加了文字的logo并且文字在logo的边界，这是组件设计问题，暂无法解决
@@ -35,8 +27,6 @@
 
 
 ## :exclamation: 注意事项
-
-
 
 1. 裁剪功能是根据网站的代码结构，通过一定的方法实现的，不能完全保证，不过目前经过测试基本上没有问题~
 2. 智能裁剪功能需要确保**logo中没有处于编组的素材**以及**页面右下角的编辑比例必须是100%**。
@@ -48,14 +38,11 @@
 
 ## :camera: 效果预览
 
-
 <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/s3.png" alt="xgyl" style="width:300px" />
 
 
 
 ## :package: 获取方式
-
-
 
 - 直接下载：点击上方“Code”按钮，选择最后一项“Download ZIP”即可下载插件~
 - 项目克隆：`git clone https://github.com/quarkape/free_logo`
@@ -64,31 +51,23 @@
 
 ## :computer: 适用网站
 
-
-
 [![](https://img.shields.io/static/v1?label=标小智&message=https://www.logosc.cn/&color=666&labelColor=0081ff)](https://www.logosc.cn/)    [![](https://img.shields.io/static/v1?label=标智客&message=https://www.logomaker.com.cn/&color=666&labelColor=00deb4)](https://www.logomaker.com.cn/)  
 
 
 
 ## :leaves: 镜像
 
-
-
 [![](https://img.shields.io/badge/github-free_logo-lightgrey.svg?logo=GitHub)](https://github.com/quarkape/free_logo)   [![](https://img.shields.io/badge/gitee-free_logo-lightgrey.svg?logoColor=C71D23&logo=Gitee&labelColor=ffffff&color=c71d23)](https://gitee.com/quarkape/free_logo)
 
 
 
-## :headphones: 演示视频
-
-
+:headphones: 演示视频
 
  [![](https://img.shields.io/badge/bilibili-演示视频-red.svg?logo=Bilibili&color=00A1D6)](https://www.bilibili.com/video/BV1t84y1r71B?share_source=copy_web)
 
 
 
 ## :hammer: 安装
-
-
 
 1. 将完整的项目下载下来
 2. 在地址栏输入`chrome://extensions/`（Edge浏览器是`edge://extensions/`）回车，进入扩展程序管理页面
@@ -99,8 +78,6 @@
 
 ## :hammer_and_wrench: 使用方法
 
-
-
 1. 进入上述网站的LOGO编辑页面（如果弹出登录框，点击去除登录框即可）
 5. 编辑LOGO至满足需求
 6. 点击插件，根据需求填写LOGO宽度，根据需求选择是否需要保留背景或者开启智能裁剪
@@ -110,17 +87,13 @@
 
 ## :hammer_and_wrench: SVG转PNG
 
-
-
-1. Internet Explorer浏览器。直接将free_logo.svg文件用IE浏览器打开，鼠标在LOGO上右键，另存为PNG格式的文件即可。
+1. Inernet Explorer浏览器。直接将free_logo.svg文件用IE浏览器打开，鼠标在LOGO上右键，另存为PNG格式的文件即可。
 2. Edge的IE模式。在Edge中打开free_logo.svg文件，点击浏览器右上角用户头像左边的按钮，Edge浏览器会在IE模式下重新加载页面。加载完后，右键另存为PNG格式的文件即可。（找不到IE模式，请点击右上角三点——设置——默认浏览器，将“允许在 Internet Explorer 模式下重新加载网站”切换为允许，重启浏览器生效，再另存为PNG文件即可）
 4. 在线svg转png。亲测在线的转换效果比较差。
 
 
 
 ## :hammer_and_wrench: 配置
-
-
 
 - LOGO宽度没必要特别大，一般：
   1. 网页favicon图标，几十就可以了
