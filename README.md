@@ -1,4 +1,6 @@
-# <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="height:30px" /> Free Logo  v3.2.1
+#  Free Logo  v3.2.1
+
+<img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="height:100px" />
 
 ### 一个插件帮你**快速**、**免费**下载两个网站的**无水印**、**高清**LOGO！
 
