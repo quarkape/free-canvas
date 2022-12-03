@@ -1,4 +1,4 @@
-#  Free Logo  v3.0.0
+#  Free Logo  v3.3.0
 
 <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="height:100px" />
 
