@@ -2,10 +2,9 @@
 
 <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="height:100px" />
 
-### 一个插件帮你**快速**、**免费**下载两个网站的**无水印**、**高清**LOGO！
+### **快速**、**免费**下载无水印**、**高清LOGO！**
 
-- 如果遇到问题或者bug，请提issue或者反馈
-- 感谢B友@*拾光探长*在版本更新后的测试
+如果遇到问题或者bug，请提issue或者反馈，感谢B友@*拾光探长*在版本更新后的测试~
 
 
 
