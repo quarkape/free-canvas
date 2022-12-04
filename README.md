@@ -1,4 +1,4 @@
-#  Free Logo  v3.0.0
+#  Free Logo  v3.3.0
 
 <img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="height:100px" />
 
@@ -113,8 +113,9 @@
 
 ## :bookmark_tabs: 更新日志
 
-- v3.3.0 | 2022.12.4
+- **v3.3.0 | 2022.12.4**
   1. 支持登录状态下，标智客LOGO的正方形logo导出
+  2. 新增导出的参数提示，包括是否保留背景、是否开启了智能裁剪和裁剪为正方形以及导出的尺寸
 - **v3.2.1 | 2022.12.1**
   1. 修复标智客登录状态下，logo中没有任何分组，但是同时勾选保留背景和智能裁剪时，会提示有分组的问题
   2. 修复了标小智无论是否勾选保留背景都会保留背景的问题
