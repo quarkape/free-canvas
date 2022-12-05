@@ -26,7 +26,18 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
     }
   }
   dealPage();
+  checkPoster(tab_id);
 })
+
+// 首先发送消息，判断页面类型，动态展示插件页面的组件内容
+function checkPoster(tabId) {
+  chrome.tabs.sendMessage(tabId, {'posterCheck': true}, (resp) => {
+    if (resp === 'poster') {
+      document.getElementById("cutlogodiv").style.display = "none";
+      document.getElementById("keepbgdiv").style.display = "none";
+    }
+  })
+}
 
 // 页面预处理
 const dealPage = () => {
@@ -61,7 +72,7 @@ document.getElementById("deletecover").addEventListener("click", () => {
   })
 })
 
-// 开始处理
+// 开始处理logo
 document.getElementById("execute").addEventListener("click", () => {
   let opt = {
     'tab_type': tab_type,

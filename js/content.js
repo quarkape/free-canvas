@@ -1,5 +1,5 @@
 // console
-console.log(`%c${'----------\n欢迎使用Free Logo插件.\n项目地址:https://github.com/quarkape/Free_Logo.\n还请给个star,欢迎fork~\n----------'}`, 'font-size: 20px;color: #9c26b0;font-weight: bold;')
+console.log(`%c${'----------\n欢迎使用Free Logo插件.\n项目地址:https://github.com/quarkape/free-canvas.\n还请给个star,欢迎fork~\n----------'}`, 'font-size: 20px;color: #9c26b0;font-weight: bold;')
 
 let conf_list = [
   {
@@ -46,6 +46,19 @@ const pat = /(?<=translate\()(.+?)(?=\))/;
 const patBox = /(?<=translate\()(.+?)(?=px\))/;
 
 chrome.runtime.onMessage.addListener((req, sender, resp) => {
+  // 判断是不是海报设计页面
+  if (req.posterCheck) {
+    let iconNode = document.getElementsByClassName("icon-page");
+    let pageNode = document.getElementsByClassName("my-home");
+    if (iconNode.length !== 0 && pageNode.length === 0) {
+      resp('logo');
+      return;
+    } else if (iconNode.length === 0 && pageNode.length !== 0) {
+      resp('poster');
+      return;
+    }
+  }
+
   // 处理登录框
   if (req.del) {
     const logincover = document.getElementsByClassName("el-scrollbar__view")[0].children[7];
@@ -70,33 +83,48 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     resp(`宽度应该介于${conf_list[tab_type].min}~${conf_list[tab_type].max}`);
     return;
   }
-  
+
   // 获取svg节点
   let svg_part = null;
   let svg_part_copy = null;
   let svgBoxNodes = null;
   // 新的高度
   let afterHeight = null;
+  // 是否是海报节点
+  let posterPage = false;
 
   basicDeal();
 
   // 去掉无用区域，仅适用于标智客登陆后的类型
-  if (tab_type === 2 && cutlogo) {
-    svgBoxNodes = document.getElementById("rectBox");
-    dealCutFit();
-  } else if (tab_type === 2 && cutsquare) {
-    svgBoxNodes = document.getElementById("rectBox");
-    dealCutSquare();
-  }else {
-    // 修改尺寸
-    svg_part_copy.setAttribute("width", widthset);
-    svg_part_copy.setAttribute("height", parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w));
-    afterHeight = parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w);
+  if (tab_type === 2) {
+    // 判断当前页面是海报还是logo
+    let iconNode = document.getElementsByClassName("icon-page");
+    let pageNode = document.getElementsByClassName("my-home");
+    if (iconNode.length !== 0 && pageNode.length === 0) { // 当前是logo页面
+      if (cutlogo) {
+        svgBoxNodes = document.getElementById("rectBox");
+        dealCutFit();
+      } else if (cutsquare) {
+        svgBoxNodes = document.getElementById("rectBox");
+        dealCutSquare();
+      } else {
+        resizeLogo();
+      }
+    } else if (iconNode.length === 0 && pageNode.length !== 0) { // 海报页面
+      posterPage = !posterPage;
+      basicDeal();
+      // 获取原尺寸
+      let width = parseFloat(svg_part_copy.getAttribute("width"));
+      let height = parseFloat(svg_part_copy.getAttribute("height"));
+      resizeLogo(width, height);
+    }
+  } else {
+    resizeLogo();
   }
 
   afterDeal();
 
-  // 基础处理，包括获取节点，克隆节点，去水印和操作背景
+  // 获取节点，克隆节点，去水印和操作背景
   function basicDeal() {
     // 克隆节点，防止污染原节点；将节点插入到文档中，才能使用getBoundingClientRect()函数
     switch (tab_type) {
@@ -113,11 +141,18 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
       case 2:
         svg_part = document.getElementById('stage_canvas').children[1];
         svg_part_copy = svg_part.cloneNode(true);
-        document.getElementById('stage_canvas').appendChild(svg_part_copy);
+        // 如果是海报的话，不用插入DOM中
+        (cutlogo || cutsquare) ? document.getElementById('stage_canvas').appendChild(svg_part_copy) : '';
         break;
     }
     // 克隆节点透明
     svg_part_copy.style.opacity = "0";
+
+    // 如果是海报页面，不需要去水印和去背景
+    if (posterPage) {
+      return;
+    }
+
     // 去水印
     if (conf_list[tab_type].wmpos) {
       let wm = svg_part_copy.children[conf_list[tab_type].wmpos];
@@ -125,7 +160,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
         svg_part_copy.removeChild(wm);
       }
     }
-    // 操作背景
+    // 去白色背景，使之透明，视具体情况决定是否需要去掉
     if (!keepbg) {
       let bg = svg_part_copy.children[conf_list[tab_type].bgpos];
       if (bg.nodeName === conf_list[tab_type].bgty && (conf_list[tab_type].bgnm === (conf_list[tab_type].bgty === 'rect' ? bg.id[conf_list[tab_type].bgkey] : bg.id) || conf_list[tab_type].bgnm === (conf_list[tab_type].bgty === 'rect' ? bg.className[conf_list[tab_type].bgkey] : bg.className))) {
@@ -243,7 +278,6 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
 
   // 移动logo
   function moveLogo(leftMovement, topMovement) {
-    console.log('str', leftMovement, topMovement)
     let nodes = svg_part_copy.children;
     // 移动所有元素的位置至左上角
     for (let i of nodes) {
@@ -260,12 +294,40 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   }
 
   // 移动背景
-  function moveBg(leftMovement, topMovement) {
-    // 如果勾选了保留背景才移动背景图片位置
+  // sizeFit：选择裁剪为1：1的时候，是否等比扩大背景
+  function moveBg(leftMovement, topMovement, logoLen) {
+    // 如果勾选了保留背景，并且背景是图片而不是纯色的时候才移动背景图片位置
     if (keepbg) {
       let bg = svg_part_copy.children[conf_list[tab_type].bgpos];
       if (bg.nodeName === conf_list[tab_type].bgty && (bg.id === conf_list[tab_type].bgnm || bg.className === conf_list[tab_type].bgnm)) {
-        bg.setAttribute("transform", `translate(${leftMovement} ${topMovement})`)
+        // 使用了图片背景
+        if (bg.children[0].hasChildNodes()) {
+          let imgNode = bg.children[0].firstChild;
+          if (cutlogo) {
+            // 获取原有的参数
+            let transAttr = imgNode.getAttribute("transform");
+            let tranArr = transAttr.match(pat)[0].split(" ");
+            let leftTrans = parseFloat(tranArr[0]);
+            let topTrans = parseFloat(tranArr[1]);
+            // 移动位置
+            let rep = `${(leftTrans - leftMovement).toFixed(11)} ${(topTrans - topMovement).toFixed(11)}`;
+            transAttr = transAttr.replace(pat, rep);
+            imgNode.setAttribute("transform", transAttr);
+          }
+          if (cutsquare) {
+            let imgWidth = parseFloat(imgNode.getAttribute("width"));
+            let imgHeight = parseFloat(imgNode.getAttribute("height"));
+            let limit = Math.min(imgWidth, imgHeight);
+            if (limit === imgWidth) {
+              // 宽高要同比例放大，防止形变
+              imgNode.setAttribute("width", logoLen);
+              imgNode.setAttribute("height", logoLen * imgHeight / imgWidth)
+            } else {
+              imgNode.setAttribute("width", logoLen * imgWidth / imgHeight);
+              imgNode.setAttribute("height", logoLen)
+            }
+          }
+        }
       }
     }
   }
@@ -273,13 +335,24 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   // 重置logo画布尺寸
   function resizeLogo(newWidth, newHeight) {
     // 修改画布尺寸
-    svg_part_copy.setAttribute("viewBox", `0 0 ${newWidth} ${newHeight}`);
-    svg_part_copy.setAttribute("width", widthset);
-    svg_part_copy.setAttribute("height", widthset * newHeight / newWidth);
-    afterHeight = parseInt(widthset * newHeight / newWidth);
+    if (posterPage) {
+      svg_part_copy.setAttribute("width", widthset);
+      svg_part_copy.setAttribute("height", parseFloat(widthset * newHeight / newWidth).toFixed(2));
+      afterHeight = parseFloat(widthset * newHeight / newWidth).toFixed(2);
+    } else if (tab_type === 2 && (cutlogo || cutsquare)) {
+      svg_part_copy.setAttribute("viewBox", `0 0 ${newWidth} ${newHeight}`);
+      svg_part_copy.setAttribute("width", widthset);
+      svg_part_copy.setAttribute("height", widthset * newHeight / newWidth);
+      afterHeight = parseInt(widthset * newHeight / newWidth);
+    } else {
+      // 普通情况下修改尺寸
+      svg_part_copy.setAttribute("width", widthset);
+      svg_part_copy.setAttribute("height", parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w));
+      afterHeight = parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w);
+    }
   }
   
-  // 沿logo边缘裁剪
+  // 根据logo实际内容大小裁剪
   function dealCutFit() {
     let edgeArr = calcEdge(svgBoxNodes);
     if (!edgeArr) return;
@@ -287,11 +360,12 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     // 计算LOGO画布尺寸
     let svgWidth = edgeArr.rightMax - edgeArr.leftMin;
     let svgHeight = edgeArr.bottomMax - edgeArr.topMin;
+    moveBg(edgeArr.leftMin, edgeArr.topMin, 0);
     resizeLogo(svgWidth, svgHeight);
-    moveBg(-edgeArr.leftMin, -edgeArr.top);
   }
 
   // 支持裁剪为正方形LOGO，LOOG自动居中
+  // 由于可能填充，因此背景需要特殊处理
   function dealCutSquare() {
     let edgeArr = calcEdge(svgBoxNodes);
     if (!edgeArr) return;
@@ -302,11 +376,11 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
     if (logoLen === svgWidth) {
       let topMovement = ((logoLen - svgHeight)/2).toFixed(11);
       moveLogo(edgeArr.leftMin, edgeArr.topMin - topMovement);
-      moveBg(edgeArr.leftMin, edgeArr.topMin - topMovement);
+      moveBg(edgeArr.leftMin, edgeArr.topMin - topMovement, logoLen);
     } else {
       let leftMovement = ((logoLen - svgWidth)/2).toFixed(11);
       moveLogo(edgeArr.leftMin - leftMovement, edgeArr.topMin);
-      moveBg(edgeArr.leftMin - leftMovement, edgeArr.topMin)
+      moveBg(edgeArr.leftMin - leftMovement, edgeArr.topMin, logoLen);
     }
     resizeLogo(logoLen, logoLen);
   }
@@ -314,8 +388,11 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
   function afterDeal() {
     // 清除克隆节点样式，否则导出后也是透明的
     svg_part_copy.style = "";
+    // 处理当使用一些图片素材的时候，连接不是严格的http格式的问题
+    let outerHTML = svg_part_copy.outerHTML;
+    outerHTML = outerHTML.replaceAll("xlink:href=\"//", "xlink:href=\"https://");
     // 调用函数，导出svg文件
-    dl(svg_part_copy.outerHTML);
+    dl(outerHTML);
     // 将克隆的节点删除
     switch (tab_type) {
       case 0:
@@ -325,11 +402,11 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
         // document.getElementsByTagName("logomaker-logo-editor")[0].shadowRoot.lastChild.childNodes[0].childNodes[0].removeChild(svg_part_copy);
         break;
       case 2:
-        document.getElementById('stage_canvas').removeChild(svg_part_copy);
+        (cutlogo || cutsquare) ? document.getElementById('stage_canvas').removeChild(svg_part_copy) : '';
         break;
     }
     // 返回信息
-    resp(`导出成功!\n- 保留背景：${keepbg?'是':'否'}\n- 根据实际大小裁剪：${cutlogo?'是':'否'}\n- 裁剪为正方形：${cutsquare?'是':'否'}\n- 当前LOGO尺寸：${widthset} * ${afterHeight}`);
+    resp(`导出成功!\n- 类型：${posterPage?'海报':'LOGO'}\n- 保留背景：${keepbg?'是':'否'}\n- 内容适应裁剪：${cutlogo?'是':'否'}\n- 1:1裁剪：${cutsquare?'是':'否'}\n- 当前尺寸：${widthset} * ${afterHeight}`);
   }
 })
 

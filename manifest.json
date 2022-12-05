@@ -1,20 +1,20 @@
 {
 	"manifest_version": 3,
 	"name": "Free Logo",
-	"version": "3.3.0",
-	"description": "快速、免费获取两个网站的无水印、高清LOGO。插件更新地址：https://github.com/quarkape/free_logo",
+	"version": "4.0.0",
+	"description": "一键下载高清无水印logo和海报。插件更新地址：https://github.com/quarkape/free-canvas",
 	"author": "quarkape",
 	"action": {
-		"default_title": "FREE_LOGO",
+		"default_title": "free-canvas",
 		"default_popup": "popup.html"
 	},
 	"icons": {
-		"16": "img/free_logo.png",
-		"48": "img/free_logo.png",
-		"128": "img/free_logo.png"
+		"16": "img/free-canvas.png",
+		"48": "img/free-canvas.png",
+		"128": "img/free-canvas.png"
 	},
 	"permissions": ["tabs"],
-	"homepage_url": "https://github.com/quarkape/free_logo",
+	"homepage_url": "https://github.com/quarkape/free-canvas",
 	"content_scripts": [
 		{
 			"matches": ["https://www.logomaker.com.cn/*", "https://www.logosc.cn/edit"],
