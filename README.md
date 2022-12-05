@@ -4,21 +4,25 @@
 
 ### **快速**、**免费**下载无水印、高清LOGO、海报、banner等！
 
-### 欢迎star或fork，后续会视情况持续更新
+遇到问题，请提issue或反馈；感谢B友@拾光探长在版本更新后的测试；欢迎star或fork以跟进后续功能更新~
 
-如果遇到问题或者bug，请提issue或者反馈，感谢B友@*拾光探长*在版本更新后的测试~
+*:warning: 提示：LOGO或海报很多图片、字体或者素材都有版权，帖子和插件仅供技术交流，插件下载的LOGO和海报在官方未授权时请勿商用，由未授权而商用导致的版权纠纷问题，由LOGO和海报使用者承担所有责任。*
 
-:warning: 提示：LOGO或海报很多图片、字体或者素材都有版权，帖子和插件仅供技术交流，插件下载的LOGO和海报在官方未授权时请勿商用，由未授权而商用导致的版权纠纷问题，由LOGO和海报使用者承担所有责任。
+
+
+## :computer: 适用网站
+
+[![](https://img.shields.io/static/v1?label=标小智&message=https://www.logosc.cn/&color=666&labelColor=0081ff)](https://www.logosc.cn/)&emsp;[![](https://img.shields.io/static/v1?label=标智客&message=https://www.logomaker.com.cn/&color=666&labelColor=00deb4)](https://www.logomaker.com.cn/)
 
 
 
 ## :game_die: 功能支持
 
-|                  | 去除/保留logo背景  |         logo裁剪         |      去登录框      |        导出海报等        |
-| :--------------: | :----------------: | :----------------------: | :----------------: | :----------------------: |
-|      标小智      | :heavy_check_mark: | :heavy_multiplication_x: |         -          | :heavy_multiplication_x: |
-| 标智客（未登录） | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_check_mark: | :heavy_multiplication_x: |
-| 标智客（已登录） | :heavy_check_mark: |    :heavy_check_mark:    |         -          |    :heavy_check_mark:    |
+|                  |      导出logo      | 去除/保留logo背景  |         logo裁剪         |      去登录框      |         导出海报         |
+| :--------------: | :----------------: | :----------------: | :----------------------: | :----------------: | :----------------------: |
+|      标小智      | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: |         -          | :heavy_multiplication_x: |
+| 标智客（未登录） | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_check_mark: | :heavy_multiplication_x: |
+| 标智客（已登录） | :heavy_check_mark: | :heavy_check_mark: |    :heavy_check_mark:    |         -          |    :heavy_check_mark:    |
 
 
 
@@ -58,12 +62,6 @@
 
 - 直接下载：点击上方“Code”按钮，选择最后一项“Download ZIP”即可下载插件~
 - 项目克隆：`git clone https://github.com/quarkape/free-canvas`
-
-
-
-## :computer: 适用网站
-
-[![](https://img.shields.io/static/v1?label=标小智&message=https://www.logosc.cn/&color=666&labelColor=0081ff)](https://www.logosc.cn/)&emsp;[![](https://img.shields.io/static/v1?label=标智客&message=https://www.logomaker.com.cn/&color=666&labelColor=00deb4)](https://www.logomaker.com.cn/)
 
 
 
