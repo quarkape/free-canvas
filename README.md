@@ -8,6 +8,8 @@
 
 如果遇到问题或者bug，请提issue或者反馈，感谢B友@*拾光探长*在版本更新后的测试~
 
+:warning: 提示：LOGO或海报很多图片、字体或者素材都有版权，帖子和插件仅供技术交流，插件下载的LOGO和海报在官方未授权时请勿商用，由未授权而商用导致的版权纠纷问题，由LOGO和海报使用者承担所有责任。
+
 
 
 ## :game_die: 功能支持
@@ -54,7 +56,7 @@
 ## :package: 获取方式
 
 - 直接下载：点击上方“Code”按钮，选择最后一项“Download ZIP”即可下载插件~
-- 项目克隆：`git clone https://github.com/quarkape/free_logo`
+- 项目克隆：`git clone https://github.com/quarkape/free-canvas`
 
 
 
@@ -81,7 +83,7 @@
 1. 将完整的项目下载下来
 2. 在地址栏输入`chrome://extensions/`（Edge浏览器是`edge://extensions/`）回车，进入扩展程序管理页面
 3. 打开开发者模式，并在页面找到**加载已解压的扩展程序**并点击，选择从解压后的本项目
-5. 完成后，单击浏览器右上角拼图图标，找到本插件free_logo，点击后面的图钉/眼睛图标可以将插件固定到工具栏
+5. 完成后，单击浏览器右上角拼图图标，找到本插件free-canvas，点击后面的图钉/眼睛图标可以将插件固定到工具栏
 
 
 
@@ -104,9 +106,9 @@
 
 ## :hammer_and_wrench: SVG转PNG
 
-- Inernet Explorer浏览器。直接将free_logo.svg文件用IE浏览器打开，鼠标在LOGO上右键，另存为PNG格式的文件即可。
+- Inernet Explorer浏览器。直接将free_canvas.svg文件用IE浏览器打开，鼠标在LOGO上右键，另存为PNG格式的文件即可。
 
-- Edge的IE模式。在Edge中打开free_logo.svg文件，点击浏览器右上角用户头像左边的按钮，Edge浏览器会在IE模式下重新加载页面。加载完后，右键另存为PNG格式的文件即可。（找不到IE模式，请点击右上角三点——设置——默认浏览器，将“允许在 Internet Explorer 模式下重新加载网站”切换为允许，重启浏览器生效，再另存为PNG文件即可）
+- Edge的IE模式。在Edge中打开free_canvas.svg文件，点击浏览器右上角用户头像左边的按钮，Edge浏览器会在IE模式下重新加载页面。加载完后，右键另存为PNG格式的文件即可。（找不到IE模式，请点击右上角三点——设置——默认浏览器，将“允许在 Internet Explorer 模式下重新加载网站”切换为允许，重启浏览器生效，再另存为PNG文件即可）
 
 - 在线svg转png。亲测在线的转换效果比较差。
 
