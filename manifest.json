@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Free Canvas",
-	"version": "4.0.0",
+	"version": "4.1.0",
 	"description": "一键下载高清无水印logo和海报。插件更新地址：https://github.com/quarkape/free-canvas",
 	"author": "quarkape",
 	"action": {

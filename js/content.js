@@ -1,11 +1,11 @@
 // console
-console.log(`%c${'----------\n欢迎使用Free Logo插件.\n项目地址:https://github.com/quarkape/free-canvas.\n还请给个star,欢迎fork~\n----------'}`, 'font-size: 20px;color: #9c26b0;font-weight: bold;')
+console.log(`%c${'----------\n欢迎使用Free Canvas插件.\n项目地址:https://github.com/quarkape/free-canvas.\n还请给个star,欢迎fork~\n----------'}`, 'font-size: 20px;color: #9c26b0;font-weight: bold;')
 
 let conf_list = [
   {
     'name': 'bxz', // 网站简称
     'min': 34, // 允许的宽度最小值，可以更改
-    'max': 6800, // 允许的宽度最大值，可以更改
+    'max': 13600, // 允许的宽度最大值，可以更改
     'default': 680, // 默认的宽度值，可以更改，当不输入宽度值得时候，默认用这个值
     'defaultHeight': 500, // 默认高度值，可以更改
     'w': 34, // 宽高比的宽
@@ -21,7 +21,7 @@ let conf_list = [
   }, {
     'name': 'bzk0',
     'min': 31,
-    'max': 6200,
+    'max': 12400,
     'default': 620,
     'defaultHeight': 465,
     'w': 4,
@@ -32,7 +32,7 @@ let conf_list = [
   }, {
     'name': 'bzk1',
     'min': 40,
-    'max': 8000,
+    'max': 16000,
     'default': 800,
     'defaultHeight': 600,
     'w': 4,
