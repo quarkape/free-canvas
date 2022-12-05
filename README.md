@@ -1,6 +1,6 @@
 #  Free Canvas  v4.0.0
 
-<img src="https://raw.githubusercontent.com/quarkape/free_logo/main/img/free_logo.png" alt="image" style="height:100px" />
+<img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/free-canvas.png" alt="image" style="height:100px" />
 
 ### **快速**、**免费**下载无水印、高清LOGO、海报、banner等！
 
