@@ -64,7 +64,7 @@
 
 ## :leaves: 镜像
 
-[![](https://img.shields.io/badge/github-free canvas-lightgrey.svg?logo=GitHub)](https://github.com/quarkape/free-canvas)&emsp;[![](https://img.shields.io/badge/gitee-free canvas-lightgrey.svg?logoColor=C71D23&logo=Gitee&labelColor=ffffff&color=c71d23)](https://gitee.com/quarkape/free-canvas)
+[![](https://img.shields.io/badge/github-freecanvas-lightgrey.svg?logo=GitHub)](https://github.com/quarkape/free-canvas)&emsp;[![](https://img.shields.io/badge/gitee-freecanvas-lightgrey.svg?logoColor=C71D23&logo=Gitee&labelColor=ffffff&color=c71d23)](https://gitee.com/quarkape/free-canvas)
 
 
 
