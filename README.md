@@ -8,13 +8,13 @@
 
 *:warning: 提示：LOGO或海报很多图片、字体或者素材都有版权，帖子和插件仅供技术交流，插件下载的LOGO和海报在官方未授权时请勿商用，由未授权而商用导致的版权纠纷问题，由LOGO和海报使用者承担所有责任。*
 
-
+&nbsp;
 
 ## :computer: 适用网站
 
 [![](https://img.shields.io/static/v1?label=标小智&message=https://www.logosc.cn/&color=666&labelColor=0081ff)](https://www.logosc.cn/)&emsp;[![](https://img.shields.io/static/v1?label=标智客&message=https://www.logomaker.com.cn/&color=666&labelColor=00deb4)](https://www.logomaker.com.cn/)
 
-
+&nbsp;
 
 ## 下载
 
@@ -29,7 +29,7 @@
 2. 在地址栏输入`chrome://extensions/`（Edge浏览器是`edge://extensions/`）回车，进入扩展程序管理页面
 3. 打开开发者模式，并在页面找到加载已解压的扩展程序并点击，选择从解压后的本项目
 
-
+&nbsp;
 
 ## 使用
 
@@ -46,7 +46,7 @@
   4. 挑选相关的板块内容，点击进入
   5. 编辑好之后打开插件点击开始处理，即可开始下载
 
-
+&nbsp;
 
 ## 功能支持
 
@@ -56,7 +56,7 @@
 | 标智客（未登录） | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_check_mark: | :heavy_multiplication_x: |
 | 标智客（已登录） | :heavy_check_mark: | :heavy_check_mark: |    :heavy_check_mark:    |         -          |    :heavy_check_mark:    |
 
-
+&nbsp;
 
 ## 常见问题
 
@@ -68,7 +68,7 @@
 7. 导出LOGO后页面空白，有可能是：①LOGO主体是白色的，需要保留背景才能看到LOGO主体；②设置的宽度比较大，浏览器一页无法完全显示，滚动浏览器页面或者缩放浏览器页面比例即可
 8. 有的海报设置较大宽度导出后会模糊，可能因为海报里面的图片非矢量，放大会模糊
 
-
+&nbsp;
 
 ## 注意事项
 
@@ -78,19 +78,19 @@
 7. 插件安装完成后，请刷新LOGO编辑页面
 8. 编辑LOGO的时候，不要超过给定的框
 
-
+&nbsp;
 
 ## 镜像
 
 [![](https://img.shields.io/badge/github-freecanvas-lightgrey.svg?logo=GitHub)](https://github.com/quarkape/free-canvas)&emsp;[![](https://img.shields.io/badge/gitee-freecanvas-lightgrey.svg?logoColor=C71D23&logo=Gitee&labelColor=ffffff&color=c71d23)](https://gitee.com/quarkape/free-canvas)
 
-
+&nbsp;
 
 ## 演示视频
 
  [![](https://img.shields.io/badge/bilibili-演示视频(v1.0.0版本的)-red.svg?logo=Bilibili&color=00A1D6)](https://www.bilibili.com/video/BV1t84y1r71B?share_source=copy_web)
 
-
+&nbsp;
 
 ##  配置
 
@@ -99,7 +99,7 @@
   2. 找到`conf_list`数组，将里面元素的`max`和`min`调整为自己想要的值即可。第一个元素是标小智，第二个和第三个分别是未登录和登录状态下的标智客的。单改此处，插件界面提示不会改变，但是超过最大值时不会报错。
   3. 修改之后需要在扩展程序管理页面刷新这个插件，同时刷新网页。
 
-
+&nbsp;
 
 ## SVG转PNG
 
@@ -109,7 +109,7 @@
 
 - 在线svg转png。
 
-
+&nbsp;
 
 ##  更新日志
 
