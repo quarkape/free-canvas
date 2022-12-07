@@ -21,7 +21,7 @@
 - 直接下载：点击上方“Code”按钮，选择最后一项“Download ZIP”
 - 项目克隆：`git clone https://github.com/quarkape/free-canvas`
 
-
+&nbsp;
 
 ## 安装
 
