@@ -1,4 +1,4 @@
-#  Free Canvas  v4.1.0
+#  Free Canvas  v4.1.1
 
 <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/free-canvas.png" alt="image" style="height:100px" />
 
@@ -113,6 +113,8 @@
 
 ##  更新日志
 
+- **v4.1.1 | 2022.12.7**
+  1. 修复了标小智不勾选保留背景之后在IE模式下加载背景变为黑色的问题
 - **v4.1.0 | 2022.12.5**
   1. 调整可导出的LOGO或者海报的宽度上限为原来的一倍
 - **v4.0.0 | 2022.12.5**

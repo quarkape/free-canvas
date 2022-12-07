@@ -17,7 +17,7 @@ let conf_list = [
     'bgkey2': 'animVal',
     'wmpos': 1, // 水印的位置
     'wmty': 'rect', // 水印的类型
-    'wmnm': 'watermark' // 水印的名称
+    'wmnm': 'watermarklayer' // 水印的名称
   }, {
     'name': 'bzk0',
     'min': 31,
@@ -153,16 +153,23 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
       return;
     }
 
+    let wm = svg_part_copy.children[conf_list[tab_type].wmpos];
+    console.log('wm', wm);
+    let bg = svg_part_copy.children[conf_list[tab_type].bgpos];
+
     // 去水印
     if (conf_list[tab_type].wmpos) {
-      let wm = svg_part_copy.children[conf_list[tab_type].wmpos];
-      if (wm.nodeName === conf_list[tab_type].wmty && (wm.id === conf_list[tab_type].wmnm || wm.className === conf_list[tab_type].wmnm)) {
+      console.log('1')
+      console.log(wm.nodeName)
+      console.log(wm.id, wm.className)
+      // if (wm.nodeName === conf_list[tab_type].wmty && (wm.id === conf_list[tab_type].wmnm || wm.className === conf_list[tab_type].wmnm)) {
+      if (wm.nodeName === conf_list[tab_type].wmty && (conf_list[tab_type].wmnm === (conf_list[tab_type].wmty === 'rect' ? wm.id[conf_list[tab_type].bgkey] : wm.id) || conf_list[tab_type].wmnm === (conf_list[tab_type].wmty === 'rect' ? wm.className[conf_list[tab_type].bgkey] : wm.className))) {
+        console.log('2')
         svg_part_copy.removeChild(wm);
       }
     }
     // 去白色背景，使之透明，视具体情况决定是否需要去掉
     if (!keepbg) {
-      let bg = svg_part_copy.children[conf_list[tab_type].bgpos];
       if (bg.nodeName === conf_list[tab_type].bgty && (conf_list[tab_type].bgnm === (conf_list[tab_type].bgty === 'rect' ? bg.id[conf_list[tab_type].bgkey] : bg.id) || conf_list[tab_type].bgnm === (conf_list[tab_type].bgty === 'rect' ? bg.className[conf_list[tab_type].bgkey] : bg.className))) {
         svg_part_copy.removeChild(bg);
       }
@@ -351,7 +358,7 @@ chrome.runtime.onMessage.addListener((req, sender, resp) => {
       afterHeight = parseInt(widthset * conf_list[tab_type].h / conf_list[tab_type].w);
     }
   }
-  
+
   // 根据logo实际内容大小裁剪
   function dealCutFit() {
     let edgeArr = calcEdge(svgBoxNodes);
