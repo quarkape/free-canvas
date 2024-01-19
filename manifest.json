@@ -1,20 +1,20 @@
 {
 	"manifest_version": 3,
-	"name": "Free Canvas",
+	"name": "自由画布 - 免费下载高清无水印LOGO",
 	"version": "4.1.1",
-	"description": "一键下载高清无水印logo和海报。插件更新地址：https://github.com/quarkape/free-canvas",
+	"description": "一键免费下载高清无水印海报或者LOGO。正在加入更多网站，支持更多功能。反馈或建议请加入qq群：715602514",
 	"author": "quarkape",
 	"action": {
 		"default_title": "free-canvas",
 		"default_popup": "popup.html"
 	},
 	"icons": {
-		"16": "img/free-canvas.png",
-		"48": "img/free-canvas.png",
-		"128": "img/free-canvas.png"
+		"16": "img/free-canvas-t.png",
+		"48": "img/free-canvas-t.png",
+		"128": "img/free-canvas-t.png"
 	},
 	"permissions": ["tabs"],
-	"homepage_url": "https://github.com/quarkape/free-canvas",
+	"homepage_url": "https://github.com/quarkape",
 	"content_scripts": [
 		{
 			"matches": ["https://www.logomaker.com.cn/*", "https://www.logosc.cn/edit"],

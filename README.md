@@ -1,35 +1,24 @@
-#  Free Canvas  v4.1.1
+#  Free Canvas  v4.2.0
 
-<img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/free-canvas.png" alt="image" style="height:100px" />
+<img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/free-canvas-t.png" alt="image" style="height:100px" />
 
-### **快速**、**免费**下载无水印、高清LOGO、海报、banner等！
+### **快速**、**免费**下载无水印、大尺寸的LOGO、海报等！
 
-遇到问题，请提issue或反馈；感谢B友@拾光探长在版本更新后的测试；欢迎star或fork以跟进后续功能更新~
+### :warning: 后续版本将在谷歌商店更新（自由画布 - 免费下载高清无水印LOGO）
 
-*:warning: 提示：LOGO或海报很多图片、字体或者素材都有版权，帖子和插件仅供技术交流，插件下载的LOGO和海报在官方未授权时请勿商用，由未授权而商用导致的版权纠纷问题，由LOGO和海报使用者承担所有责任。*
 
-:warning: 由于标智客官网代码调整，插件对于标智客网站上面的部分logo导出后出现问题。具体表现为：该网站上生成的某些logo包含几个部分，比如既有图标又有文字。这种情况下导出后的文件会出现各个部分分开的问题。目前没有精力维护，感兴趣的小伙伴可以再研究一下官网代码。
-
-&nbsp;
 
 ## 适用网站
 
 [![](https://img.shields.io/static/v1?label=标小智&message=https://www.logosc.cn/&color=666&labelColor=0081ff)](https://www.logosc.cn/)&emsp;[![](https://img.shields.io/static/v1?label=标智客&message=https://www.logomaker.com.cn/&color=666&labelColor=00deb4)](https://www.logomaker.com.cn/)
 
-&nbsp;
-
-## 下载
-
-- 直接下载：点击上方“Code”按钮，选择最后一项“Download ZIP”
-- 项目克隆：`git clone https://github.com/quarkape/free-canvas`
-
-&nbsp;
+&nbsp;&nbsp;
 
 ## 安装
 
-1. 将完整的项目下载下来
+1. 下载项目
 2. 在地址栏输入`chrome://extensions/`（Edge浏览器是`edge://extensions/`）回车，进入扩展程序管理页面
-3. 打开开发者模式，并在页面找到加载已解压的扩展程序并点击，选择从解压后的本项目
+3. 打开开发者模式，并在页面找到加载已解压的扩展程序，选择解压后的本项目
 
 &nbsp;
 
@@ -37,69 +26,57 @@
 
 - logo导出
 
-  1. 进入网站的LOGO编辑页面（如果弹出登录框，点击去除登录框即可）
-  2. 编辑LOGO至满足需求
+  1. 进入网站的LOGO编辑页面
   3. 点击插件，根据需求填写LOGO宽度，根据需求选择是否需要保留背景或者开启智能裁剪
-  4. 点击开始处理，即可开始下载
-- 海报导出
-  1. 登录标智客
-  2. 进入标智客首页，会自动跳转页面；或者点击首页右上角工作台
-  3. 在跳转后的页面最下方可以找到“运营物料应有尽有”板块
-  4. 挑选相关的板块内容，点击进入
-  5. 编辑好之后打开插件点击开始处理，即可开始下载
+  4. 点击处理并下载
+- 标智客海报导出步骤类似
 
-&nbsp;
+
+
+## 界面
+
+<img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/ui.png" alt="image" style="height:100px" />
+
+
 
 ## 功能支持
 
-|                  |      导出logo      | 去除/保留logo背景  |         logo裁剪         |      去登录框      |         导出海报         |
-| :--------------: | :----------------: | :----------------: | :----------------------: | :----------------: | :----------------------: |
-|      标小智      | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: |         -          | :heavy_multiplication_x: |
-| 标智客（未登录） | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_check_mark: | :heavy_multiplication_x: |
-| 标智客（已登录） | :heavy_check_mark: | :heavy_check_mark: |    :heavy_check_mark:    |         -          |    :heavy_check_mark:    |
+|        |      导出logo      | 去除/保留logo背景  |        自适应裁剪        |         导出海报         | 1:1裁剪 |
+| :----: | :----------------: | :----------------: | :----------------------: | :----------------------: | ------- |
+| 标小智 | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |         |
+| 标智客 | :heavy_check_mark: | :heavy_check_mark: |    :heavy_check_mark:    |    :heavy_check_mark:    |         |
+
+:information_source: *未来将支持更多功能，包括圆形裁剪、自定义正方形裁剪留白边、圆形纯色背景、支持更多可用网站等*
 
 &nbsp;
 
 ## 常见问题
 
-2. IE转PNG的时候，如果提示“意外的调用了属性或方法”，需要把LOGO或者海报的宽度调低一些，或者使用在线转换
-3. PS转换SVG文件，有可能转换后的PNG文件有些素材的背景会变成黑色，可以使用IE转换或者在线转换
-4. 如果点击立即处理后提示`undefined`，刷新LOGO编辑页面即可
-5. `windows defender`提示插件压缩包有风险，解压后一般都不会再提示，不放心的小伙伴可以用相关软件检查一下
-6. 智能裁剪得到的logo可能周边有些细微的空边，这常见于添加了文字的logo并且文字在logo的边界，这是组件设计问题，暂无法解决
-7. 导出LOGO后页面空白，有可能是：①LOGO主体是白色的，需要保留背景才能看到LOGO主体；②设置的宽度比较大，浏览器一页无法完全显示，滚动浏览器页面或者缩放浏览器页面比例即可
-8. 有的海报设置较大宽度导出后会模糊，可能因为海报里面的图片非矢量，放大会模糊
+1. IE转PNG的时候，如果提示“意外的调用了属性或方法”，需要把LOGO或者海报的宽度调低一些，或者使用在线转换
+2. PS转换SVG文件，有可能转换后的PNG文件有些素材的背景会变成黑色，可以使用IE转换或者在线转换
+3. 如果点击立即处理后提示`undefined`，刷新LOGO编辑页面
+4. `windows defender`提示插件压缩包有风险，解压后一般不会再提示
+5. 智能裁剪得到的logo可能周边有些细微的空边，这常见于添加了文字的logo并且文字在logo的边界，暂无法解决
+6. 导出LOGO后页面空白，有可能是因为LOGO主体是白色的，需要保留背景才能看到LOGO主体
+7. 有的海报设置较大宽度导出后会模糊，可能因为海报里面的图片非矢量，放大会模糊
 
 &nbsp;
 
 ## 注意事项
 
-1. 制作海报需要登录标智客；使用裁剪功能需要登录标智客并且需要进入高级编辑
-3. 智能裁剪功能需要确保logo中没有处于编组的素材以及页面右下角的编辑比例必须是100%。已知会有编组状态的素材是：字体——书法字、标题、列表内容等（通过“添加文字”按钮添加的文字没有编组状态）。当添加了这些编组状态的素材时，你需要单击这些素材，然后点击左上角出现的取消编组按钮（重复此过程直到所有素材的编组都取消了）
-5. 勾选导出1:1比例的logo的同时勾选保留背景时，为了完全填充，可能会放大背景图片
-7. 插件安装完成后，请刷新LOGO编辑页面
-8. 编辑LOGO的时候，不要超过给定的框
-
-&nbsp;
-
-## 镜像
-
-[![](https://img.shields.io/badge/github-freecanvas-lightgrey.svg?logo=GitHub)](https://github.com/quarkape/free-canvas)&emsp;[![](https://img.shields.io/badge/gitee-freecanvas-lightgrey.svg?logoColor=C71D23&logo=Gitee&labelColor=ffffff&color=c71d23)](https://gitee.com/quarkape/free-canvas)
+1. 标智客需要登陆后使用
+2. 裁剪功能需要确保：
+   - **页面右下角的编辑比例必须是100%**
+   - **logo中没有处于编组的素材**。已知会有编组状态的素材是：字体——书法字、标题、列表内容等（通过“添加文字”按钮添加的文字没有编组状态）。当添加了这些编组状态的素材时，你需要单击这些素材，然后点击左上角出现的取消编组按钮（重复此过程直到所有素材的编组都取消）
+3. 勾选导出1:1比例的logo的同时勾选保留背景时，为了完全填充，可能会放大背景图片
+4. 插件安装完成后，请刷新LOGO编辑页面
+5. 编辑LOGO的时候，不要超过给定的框
 
 &nbsp;
 
 ## 演示视频
 
  [![](https://img.shields.io/badge/bilibili-演示视频(v1.0.0版本的)-red.svg?logo=Bilibili&color=00A1D6)](https://www.bilibili.com/video/BV1t84y1r71B?share_source=copy_web)
-
-&nbsp;
-
-##  配置
-
-- 你可以自行修改最大宽度，只需要：
-  1. 找到`js/content.js`文件并打开
-  2. 找到`conf_list`数组，将里面元素的`max`和`min`调整为自己想要的值即可。第一个元素是标小智，第二个和第三个分别是未登录和登录状态下的标智客的。单改此处，插件界面提示不会改变，但是超过最大值时不会报错。
-  3. 修改之后需要在扩展程序管理页面刷新这个插件，同时刷新网页。
 
 &nbsp;
 
@@ -111,10 +88,26 @@
 
 - 在线svg转png。
 
-&nbsp;
+
+
+## 捐赠
+
+- 网站代码更改时，插件也需要定期更新
+
+- 后续将提供更多的功能支持，增加更多网站，你也可以将好的网站分享出来
+
+  | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/wechat.jpg" alt="image" style="height:100px" /> | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/alipay.jpg" alt="image" style="height:100px" /> |
+  | :----------------------------------------------------------: | :----------------------------------------------------------: |
+  |                            支付宝                            |                             微信                             |
+
+  &nbsp;
 
 ##  更新日志
 
+- **v4.2.0 | 2024.1.16**
+  1. 修复了标智客导出logo的各种问题
+  2. 移除了标智客未登陆时的各种可选项，因为标智客在未登陆的情况下功能受限
+  3. **下个版本将在应用商店上新，可能会开启收费模式**
 - **v4.1.1 | 2022.12.7**
   1. 修复了标小智不勾选保留背景之后在IE模式下加载背景变为黑色的问题
 - **v4.1.0 | 2022.12.5**

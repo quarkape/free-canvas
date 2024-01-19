@@ -1,66 +1,34 @@
 body {
 	width: 300px;
 	min-height: 140px;
-	border-radius: 4px;
+	border-radius: 0.25rem;
 	padding: 10px;
-	padding-bottom: 0;
+	box-sizing: border-box;
+	font-size: 12px;
+}
+#config {
+	color: #999;
+	border: 1px dashed #999;
+	border-radius: .25rem;
+	padding: .25rem;
 	box-sizing: border-box;
 }
-#curpage {
-	font-size: 14px;
-	color: #666;
-	margin-bottom: 12px;
+#config-title {
+	color: #333;
 	font-weight: bold;
-}
-#mainbox div:nth-child(2), #mainbox div:nth-child(3), #mainbox div:nth-child(4) {
-	display: none;
-}
-#guide {
-	margin-bottom: 16px;
-}
-#guidence {
-	width: 100%;
-	height: 40px;
-	font-size: 14px;
-	border: 1px solid #39b54a;
-	color: #39b54a;
-	background-color: transparent;
-	border-radius: 4px;
-	outline: none;
-	transition: all .3s ease;
-	margin-bottom: 12px;
-}
-#guidence:hover {
-	background-color: #39b54a;
-	color: #fff;
-}
-#deletecover {
-	width: 100%;
-	height: 40px;
-	font-size: 14px;
-	border: 1px solid #1cbbb4;
-	color: #1cbbb4;
-	background-color: transparent;
-	border-radius: 4px;
-	outline: none;
-	transition: all .3s ease;
-	margin-bottom: 16px;
-}
-#deletecover:hover {
-	background-color: #1cbbb4;
-	color: #fff;
+	margin-bottom: .25rem;
+	font-size: 12px;
 }
 #widthset {
 	width: 100%;
-	height: 40px;
-	line-height: 40rpx;
-	padding: 6px;
+	height: 30px;
+	line-height: 30rpx;
 	box-sizing: border-box;
 	outline: none;
-	border: 1px solid #0081ff;
+	border: none;
+	border-bottom: 1px solid #666;
 	background-color: #fff;
 	margin: 4px 0 16px 0;
-	border-radius: 4px;
 }
 #keepbgdiv {
 	margin-bottom: 16px;
@@ -78,15 +46,16 @@ body {
 	width: 100%;
 	height: 40px;
 	font-size: 14px;
-	background-color: #0081ff;
+	background-color: #39b54a;
 	color: #fff;
 	border-radius: 4px;
 	outline: none;
 	border:none;
 	transition: all .3s ease;
+	margin-bottom: .5rem;
 }
 #execute:hover {
-	background-color: rgb(83, 168, 255);
+	background-color: #65d174;
 }
 #ans {
 	color: #e54d42;
@@ -94,7 +63,34 @@ body {
 	margin: 8px 0;
 	line-height: 1.4;
 }
-#loc {
-	color: #999;
-	font-style: italic;
+.valid {
+	margin-top: .5rem;
+	border: 1px dashed #999;
+	border-radius: .25rem;
+	padding: .25rem;
+	box-sizing: border-box;
+}
+.valid-title {
+	font-weight: bold;
+	font-size: 12px;
+}
+.valid-list {
+	max-height: 100px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	margin-top: .25rem;
+}
+.valid-item {
+	display: inline-block;
+	padding: .25rem .5rem;
+	border-radius: 6px;
+	background-color: #f6f6f6;
+	color: #666;
+	margin: .25rem .25rem;
+	text-decoration: none;
+}
+.tip {
+	margin-top: .25rem;
+	font-size: 12px;
+	color: #0081ff;
 }

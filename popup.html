@@ -6,26 +6,30 @@
 		<link href="css/popup.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<div id="curpage"></div>
-		<div><input id="guidence" value="【推荐】使用教程" type="button" /></div>
 		<div id="mainbox" style="display: none;">
-			<div><input style="display: none;" id="deletecover" value="去除登录框" type="button" /></div>
-			<div>宽度范围34~13600，默认680，建议34的倍数</div>
-			<div>宽度范围31~12400，默认620，建议31的倍数</div>
-			<div>宽度范围40~16000，默认800，建议40的倍数</div>
-			<div><input id="widthset" type="number" maxlength="5" placeholder="(非必须)请输入LOGO/海报宽度" /></div>
-			<div id="keepbgdiv">
-				<input type="checkbox" id="keepbg" name="keepbg"><label for="keepbg">保留LOGO背景(默认不保留且透明)</label><br/>
+			<div><input id="execute" value="处理并下载" type="button" /></div>
+			<div id="config">
+				<div id="config-title">可配置项</div>
+				<div><input id="widthset" type="number" maxlength="5" placeholder="导出宽度(可选,单位为像素)" /></div>
+				<div id="keepbgdiv">
+					<input type="checkbox" id="keepbg" name="keepbg"><label for="keepbg">保留LOGO背景</label><br/>
+				</div>
+				<div id="cutlogodiv">
+					<input type="radio" id="notcut" name="logocut" checked><label for="notcut">不裁剪</label><br/>
+					<input type="radio" id="cutlogo" name="logocut"><label for="cutlogo">根据内容长宽裁剪</label><br/>
+					<input type="radio" id="cutsquare" name="logocut"><label for="cutsquare">裁剪为正方形(内容居中)</label>
+				</div>
 			</div>
-			<div id="cutlogodiv">
-				<input type="radio" id="notcut" name="logocut" checked><label for="notcut">不裁剪</label><br/>
-				<input type="radio" id="cutlogo" name="logocut"><label for="cutlogo">内容适应裁剪</label><br/>
-				<input type="radio" id="cutsquare" name="logocut"><label for="cutsquare">1:1裁剪</label>
+		</div>
+		<div class="valid">
+			<div class="valid-title">可用网站</div>
+			<div class="valid-list">
+				<a target="_blank" href="https://www.logosc.cn/" class="valid-item">标小智</a>
+				<a target="_blank" href="https://www.logomaker.com.cn" class="valid-item">标智客</a>
 			</div>
-			<div><input id="execute" value="开始处理" type="button" /></div>
 		</div>
 		<div id="ans"></div>
-		<div id="loc">项目地址:https://github.com/quarkape/free-canvas.<br/>LOGO或海报很多图片、字体或者素材都有版权，帖子和插件仅供技术交流，插件下载的LOGO和海报在官方未授权时请勿商用，由未授权而商用导致的版权纠纷问题，由LOGO和海报使用者承担所有责任</div>
+		<div class="tip">QQ群: 71560251，反馈、建议并获取插件更新动态</div>
 	</body>
 	<script src="js/popup.js" type="text/javascript"></script>
 </html>
