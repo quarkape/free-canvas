@@ -6,6 +6,8 @@
 
 
 
+&nbsp;
+
 ## 适用网站
 
 [![](https://img.shields.io/static/v1?label=标小智&message=https://www.logosc.cn/&color=666&labelColor=0081ff)](https://www.logosc.cn/)&emsp;[![](https://img.shields.io/static/v1?label=标智客&message=https://www.logomaker.com.cn/&color=666&labelColor=00deb4)](https://www.logomaker.com.cn/)
@@ -43,10 +45,10 @@
 
 ## 功能支持
 
-|        |      导出logo      | 去除/保留logo背景  |        自适应裁剪        |         导出海报         | 1:1裁剪 |
-| :----: | :----------------: | :----------------: | :----------------------: | :----------------------: | ------- |
-| 标小智 | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |         |
-| 标智客 | :heavy_check_mark: | :heavy_check_mark: |    :heavy_check_mark:    |    :heavy_check_mark:    |         |
+|        |      导出logo      | 去除/保留logo背景  |        自适应裁剪        |         导出海报         |         1:1裁剪          |
+| :----: | :----------------: | :----------------: | :----------------------: | :----------------------: | :----------------------: |
+| 标小智 | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: | :heavy_multiplication_x: |
+| 标智客 | :heavy_check_mark: | :heavy_check_mark: |    :heavy_check_mark:    |    :heavy_check_mark:    |    :heavy_check_mark:    |
 
 :information_source: *未来将支持更多功能，包括圆形裁剪、自定义正方形裁剪留白边、圆形纯色背景、支持更多可用网站等*
 
@@ -107,6 +109,8 @@
   |                            支付宝                            |                             微信                             |
 
   &nbsp;
+
+  
 
 ##  更新日志
 
