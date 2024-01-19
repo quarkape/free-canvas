@@ -1,10 +1,8 @@
-#  Free Canvas  v4.2.0
+#  自由画布 - 一键免费下载高清无水印LOGO v4.2.0
 
 <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/free-canvas-t.png" alt="image" style="height:100px" />
 
-### **快速**、**免费**下载无水印、大尺寸的LOGO、海报等！
-
-### :warning: 后续版本将在谷歌商店更新（自由画布 - 免费下载高清无水印LOGO）
+### :warning: 后续版本可能在谷歌商店更新，开启收费模式
 
 
 
@@ -31,6 +29,8 @@
   4. 点击处理并下载
 - 标智客海报导出步骤类似
 
+&nbsp;
+
 
 
 ## 界面
@@ -38,6 +38,8 @@
 <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/ui.png" alt="image" />
 
 
+
+&nbsp;
 
 ## 功能支持
 
@@ -90,11 +92,15 @@
 
 
 
-## 捐赠
+&nbsp;
 
-- 网站代码更改时，插件也需要定期更新
+## 支持
 
-- 后续将提供更多的功能支持，增加更多网站，你也可以将好的网站分享出来
+- 每次网站更新时，都需要同步更新代码
+
+- 后续将提供更多的功能支持，增加更多网站
+
+- **你的支持是我不断努力的动力~**
 
   | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/wechat.jpg" alt="wechat" /> | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/alipay.jpg" alt="alipay" /> |
   | :----------------------------------------------------------: | :----------------------------------------------------------: |
