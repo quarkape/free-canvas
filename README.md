@@ -35,7 +35,7 @@
 
 ## 界面
 
-<img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/ui.png" alt="image" style="height:100px" />
+<img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/ui.png" alt="image" />
 
 
 
@@ -96,7 +96,7 @@
 
 - 后续将提供更多的功能支持，增加更多网站，你也可以将好的网站分享出来
 
-  | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/wechat.jpg" alt="image" style="height:100px" /> | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/alipay.jpg" alt="image" style="height:100px" /> |
+  | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/wechat.jpg" alt="wechat" /> | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/alipay.jpg" alt="alipay" /> |
   | :----------------------------------------------------------: | :----------------------------------------------------------: |
   |                            支付宝                            |                             微信                             |
 
