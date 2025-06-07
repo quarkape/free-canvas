@@ -147,3 +147,6 @@
 - **v1.0.0 | 2022.11.26**
   1. 支持导出标小智的LOGO
   2. 支持判断当前页面是否符合导出要求
+
+# support
+[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
