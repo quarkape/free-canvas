@@ -11,13 +11,27 @@
 			<div id="config">
 				<div id="config-title">可配置项</div>
 				<div><input id="widthset" type="number" maxlength="5" placeholder="导出宽度(可选,单位为像素)" /></div>
+				<div id="fmtdiv">
+					<input type="radio" id="fmtsvg" name="format" value="svg" checked /><label for="fmtsvg">SVG 矢量</label>
+					<input type="radio" id="fmtpng" name="format" value="png" /><label for="fmtpng">PNG 位图</label>
+					<div id="slowtip" style="display: none;"></div>
+				</div>
 				<div id="keepbgdiv">
 					<input type="checkbox" id="keepbg" name="keepbg"><label for="keepbg">保留LOGO背景</label><br/>
 				</div>
 				<div id="cutlogodiv">
 					<input type="radio" id="notcut" name="logocut" checked><label for="notcut">不裁剪</label><br/>
 					<input type="radio" id="cutlogo" name="logocut"><label for="cutlogo">根据内容长宽裁剪</label><br/>
-					<input type="radio" id="cutsquare" name="logocut"><label for="cutsquare">裁剪为正方形(内容居中)</label>
+					<input type="radio" id="cutsquare" name="logocut"><label for="cutsquare">裁剪为正方形(短边自动留白)</label>
+					<div id="paddiv">
+						<input id="padpct" type="number" min="0" max="100" placeholder="0" /><label for="padpct">四周留白，占长边的百分比</label>
+						<div id="alignrow">
+							<span>LOGO位置</span>
+							<input type="radio" id="alignleft" name="padalign" value="left" /><label for="alignleft">靠左</label>
+							<input type="radio" id="aligncenter" name="padalign" value="center" checked /><label for="aligncenter">居中</label>
+							<input type="radio" id="alignright" name="padalign" value="right" /><label for="alignright">靠右</label>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

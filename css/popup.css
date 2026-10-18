@@ -34,6 +34,20 @@ body {
 	margin-bottom: 16px;
 	font-size: 14px;
 }
+#fmtdiv {
+	margin-bottom: 12px;
+	font-size: 14px;
+	white-space: nowrap;
+}
+#fmtdiv label {
+	margin-right: 12px;
+}
+#slowtip {
+	margin-top: 4px;
+	font-size: 12px;
+	color: #e6a23c;
+	line-height: 1.4;
+}
 #cutlogodiv {
 	display: none;
 	margin-bottom: 16px;
@@ -41,6 +55,27 @@ body {
 }
 #cutlogodiv input {
 	line-height: 1.4;
+}
+#paddiv {
+	margin-top: 8px;
+	padding-left: 16px;
+	line-height: 1.8;
+}
+#paddiv #padpct {
+	width: 48px;
+	height: 22px;
+	margin-right: 4px;
+	padding-left: 4px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-sizing: border-box;
+	outline: none;
+}
+#paddiv label {
+	margin-right: 8px;
+}
+#alignrow {
+	white-space: nowrap;
 }
 #execute {
 	width: 100%;
