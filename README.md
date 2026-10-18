@@ -2,10 +2,6 @@
 
 <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/free-canvas-t.png" alt="image" style="height:100px" />
 
-### :warning: 后续版本可能在谷歌商店更新，开启收费模式
-
-
-
 &nbsp;
 
 ## 适用网站
