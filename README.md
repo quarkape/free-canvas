@@ -16,9 +16,12 @@
 
 ## 安装
 
-1. 下载项目
-2. 在地址栏输入`chrome://extensions/`（Edge浏览器是`edge://extensions/`）回车，进入扩展程序管理页面
-3. 打开开发者模式，并在页面找到加载已解压的扩展程序，选择解压后的本项目
+最新下载：<https://github.com/quarkape/free-canvas/releases/latest>（点页面上的 Source code.zip 即可，见下方第 2 条注意）
+
+1. 下载项目并解压
+2. GitHub 的压缩包解压后会多出一层 `free-canvas-版本号` 目录，`manifest.json` 在里面那一层，加载扩展时要选那一层
+3. 在地址栏输入`chrome://extensions/`（Edge浏览器是`edge://extensions/`）回车，进入扩展程序管理页面
+4. 打开开发者模式，并在页面找到加载已解压的扩展程序，选择上一步那个包含 `manifest.json` 的目录
 
 &nbsp;
 
