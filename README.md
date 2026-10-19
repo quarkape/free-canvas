@@ -107,14 +107,6 @@
 
 - 后续将提供更多的功能支持，增加更多网站
 
-- **你的支持是我不断努力的动力~**
-
-  | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/wechat.jpg" alt="wechat" /> | <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/alipay.jpg" alt="alipay" /> |
-  | :----------------------------------------------------------: | :----------------------------------------------------------: |
-  |                            支付宝                            |                             微信                             |
-
-  &nbsp;
-
   
 
 ##  更新日志
