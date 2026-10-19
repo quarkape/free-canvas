@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "自由画布 - 免费下载高清无水印LOGO",
-	"version": "4.3.0",
+	"version": "4.3.1",
 	"description": "一键免费下载高清无水印海报或者LOGO。正在加入更多网站，支持更多功能。反馈或建议请加入qq群：715602514",
 	"author": "quarkape",
 	"action": {

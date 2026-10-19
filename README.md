@@ -1,4 +1,4 @@
-#  自由画布 - 一键免费下载高清无水印LOGO v4.3.0
+#  自由画布 - 一键免费下载高清无水印LOGO v4.3.1
 
 <img src="https://raw.githubusercontent.com/quarkape/free-canvas/main/img/free-canvas-t.png" alt="image" style="height:100px" />
 
@@ -111,6 +111,10 @@
 
 ##  更新日志
 
+- **v4.3.1 | 2026.10.18**
+  1. 移除 README 的打赏章节以及支付宝、微信收款码图片
+  2. 删除 README 顶部关于上架商店收费的提示
+  （插件功能与 v4.3.0 完全相同，只是文档和素材清理）
 - **v4.3.0 | 2026.10.18**
   1. 支持标智客生成页（`/guide`）直接导出：无需登录、无需进入高级编辑，点开 LOGO 预览即可下载矢量 SVG
   2. 生成页自动移除登录遮罩（如需登录，请回到网站首页即可登录）
